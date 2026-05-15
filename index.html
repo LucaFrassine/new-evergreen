@@ -14,8 +14,8 @@
   --red: #C8102E;
   --red-dark: #8B0C1F;
   --red-light: rgba(200,16,46,0.08);
-  --black: #0A0A0A;
-  --off-black: #111111;
+  --black: #0F172A;
+  --off-black: #1E293B;
   --white: #FFFFFF;
   --off-white: #F8F7F4;
   --gray: #EBEBEB;
@@ -422,6 +422,25 @@ body {
   font-weight: 400;
 }
 .pain-closer strong { font-weight: 700; }
+.pain-cta-btn {
+  display: inline-block;
+  padding: 18px 48px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  margin-bottom: 12px;
+}
+.pain-cta-btn:hover { background: var(--red-dark); transform: translateY(-2px); }
+.pain-cta-note { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
 
 /* ── BELIEFS SECTION ── */
 .beliefs-section {
@@ -468,7 +487,7 @@ body {
   gap: 2px;
 }
 .belief-card {
-  background: #111;
+  background: #1E293B;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
@@ -706,7 +725,7 @@ body {
 
 /* ── URGENCY SECTION ── */
 .urgency-section {
-  background: #0D0D0D;
+  background: #0F172A;
   border-top: 3px solid var(--red);
   border-bottom: 3px solid var(--red);
   padding: 60px 24px;
@@ -852,8 +871,8 @@ body {
   display: inline-flex;
   align-items: flex-start;
   gap: 16px;
-  background: #111;
-  border: 1px solid #1a1a1a;
+  background: #1E293B;
+  border: 1px solid #1E293B;
   padding: 20px 28px;
   max-width: 520px;
   margin: 0 auto 40px;
@@ -923,7 +942,7 @@ body {
 
 /* ── FOOTER ── */
 footer {
-  background: #050505;
+  background: #060D1A;
   color: #333;
   text-align: center;
   padding: 36px 24px;
@@ -1000,7 +1019,7 @@ footer a:hover { color: var(--red); }
 .cookie-banner {
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  background: #0D0D0D;
+  background: #0F172A;
   border-top: 3px solid var(--red);
   padding: 20px 24px;
   z-index: 9999;
@@ -1072,7 +1091,7 @@ footer a:hover { color: var(--red); }
 <body>
 
 <!-- ══════════ TOP BAR — SCARCITÀ (Kennedy) ══════════ -->
-<div class="top-bar">⚡ POSTI LIMITATI — Rimangono solo 47 posizioni per Maggio · Verifica subito se sei idoneo</div>
+<div class="top-bar">⚡ POSTI LIMITATI — Rimangono solo 10 posizioni per Luglio · Verifica subito se sei idoneo</div>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar">
@@ -1086,15 +1105,6 @@ footer a:hover { color: var(--red); }
   <div class="hero-eyebrow">Sales Coach — Vendita sul Campo dal 2018</div>
   <h1>La Professione che le Aziende Italiane Pagano <em>3.000–8.000€/Mese</em> — e che Quasi Nessuno Sa di Poter Fare</h1>
   <p class="hero-mechanism">Non serve laurea. Non serve esperienza. Serve <strong>il Sistema delle 7 Domande</strong> — e la volontà di applicarlo.</p>
-  <div class="numbers-block">
-    <div class="numbers-main"><em>3.000</em> – 8.000€</div>
-    <div class="numbers-sub">al mese · risultati reali · non promesse</div>
-    <div class="numbers-labels">
-      <div>Senza un capo</div>
-      <div>Senza orari fissi</div>
-      <div>Anche senza esperienza</div>
-    </div>
-  </div>
   <p class="hero-sub">
     Completa il quiz in <strong>60 secondi</strong> e scopri quanto potresti guadagnare — e con quale percorso esatto arrivarci.
   </p>
@@ -1163,6 +1173,10 @@ footer a:hover { color: var(--red); }
     <p class="pain-closer">
       Il problema non è la tua capacità. Il problema è che <strong>nessuno ti ha mai mostrato la via d'uscita concreta</strong> — quella che funziona davvero, senza investimenti iniziali, senza miracoli.
     </p>
+    <div style="text-align:center; margin-top: 40px;">
+      <button class="pain-cta-btn" onclick="scrollToCalc()">Calcola quanto potresti guadagnare →</button>
+      <div class="pain-cta-note">60 secondi · Gratis · Nessuna carta di credito</div>
+    </div>
   </div>
 </section>
 
@@ -1221,7 +1235,7 @@ footer a:hover { color: var(--red); }
   <div class="calc-eyebrow">Il tuo potenziale personalizzato</div>
   <h2 class="calc-headline">Quanto potresti guadagnare<br><em>già dal primo mese?</em></h2>
   <p class="calc-sub">Rispondi a 3 domande. Ti diciamo quanto potresti guadagnare e con quale percorso esatto — basato sulla tua situazione reale, non su medie generiche.</p>
-  <p class="calc-urgency">⏰ Rimangono 47 posti disponibili per Maggio 2026</p>
+  <p class="calc-urgency">⏰ Rimangono 10 posti disponibili per Luglio 2026</p>
   <iframe src="https://go.automatoai.it/widget/quiz/5FvWWRjM20vbLiDVVVTU" style="border:none;width:100%;" scrolling="no" id="5FvWWRjM20vbLiDVVVTU" title="quiz"></iframe>
 </section>
 
@@ -1260,8 +1274,8 @@ footer a:hover { color: var(--red); }
 <!-- ══════════ URGENCY — Scarsità Reale (Kennedy) ══════════ -->
 <section class="urgency-section">
   <div class="urgency-inner">
-    <div class="urgency-timer">Offerta attiva fino al 31 Maggio 2026</div>
-    <h3 class="urgency-headline">Perché solo<br><em>47 posti?</em></h3>
+    <div class="urgency-timer">Offerta attiva fino al 31 Luglio 2026</div>
+    <h3 class="urgency-headline">Perché solo<br><em>10 posti?</em></h3>
     <p class="urgency-text">
       Non è una tattica di marketing. È un limite reale che mi impongo ogni mese.<br><br>
       <strong>Non posso seguire personalmente più di 50 nuovi venditori e garantire i risultati che vedi su questa pagina.</strong> Ogni posto in eccesso significherebbe meno qualità per tutti. Per questo la pagina viene chiusa non appena i posti sono esauriti — senza lista d'attesa, senza eccezioni.
@@ -1269,9 +1283,9 @@ footer a:hover { color: var(--red); }
     <div class="spots-counter">
       <div>
         <div class="spots-label">Posti rimasti</div>
-        <div class="spots-unit">per Maggio 2026</div>
+        <div class="spots-unit">per Luglio 2026</div>
       </div>
-      <div class="spots-number">47</div>
+      <div class="spots-number">10</div>
     </div>
     <br>
     <button class="urgency-btn" onclick="scrollToCalc()">Verifica subito se sei idoneo →</button>
@@ -1293,14 +1307,14 @@ footer a:hover { color: var(--red); }
   </div>
   <br>
   <button class="final-btn" onclick="scrollToCalc()">Calcola il tuo potenziale adesso →</button>
-  <p class="final-note">60 secondi · Gratis · Nessuna carta di credito · Solo 47 posti rimasti</p>
+  <p class="final-note">60 secondi · Gratis · Nessuna carta di credito · Solo 10 posti rimasti</p>
 </section>
 
 <!-- ══════════ P.S. — Kennedy's Essential Closer ══════════ -->
 <section class="ps-section">
   <div class="ps-inner">
     <p><strong>P.S.</strong> — Se stai leggendo questo senza aver ancora completato il quiz, probabilmente c'è una parte di te che dubita. È normale. Ma risponditi a questa domanda: tra 6 mesi, dove sarai se non cambia niente? La stessa cifra. La stessa sensazione di venerdì. Lo stesso calcolo a fine mese. Il quiz non ti costa niente. L'alternativa, sì — ogni mese.</p>
-    <p><strong>P.P.S.</strong> — I 47 posti non sono un numero inventato. È il limite che mi impongo ogni mese per garantire qualità. Quando sono esauriti, questa pagina viene chiusa. <em>Non c'è lista d'attesa.</em> Non c'è "ci riprovo il mese prossimo". Il momento è adesso.</p>
+    <p><strong>P.P.S.</strong> — I 10 posti non sono un numero inventato. È il limite che mi impongo ogni mese per garantire qualità. Quando sono esauriti, questa pagina viene chiusa. <em>Non c'è lista d'attesa.</em> Non c'è "ci riprovo il mese prossimo". Il momento è adesso.</p>
   </div>
 </section>
 
