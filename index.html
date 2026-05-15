@@ -104,9 +104,9 @@ body {
   font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #888;
+  color: #94a3b8;
   margin-bottom: 20px;
-  border: 1px solid #222;
+  border: 1px solid #334155;
   padding: 7px 20px;
 }
 .hero-eyebrow {
@@ -138,14 +138,14 @@ body {
 .hero-mechanism {
   font-family: var(--font-body);
   font-size: clamp(15px, 1.8vw, 18px);
-  color: #666;
+  color: #94a3b8;
   max-width: 600px;
-  margin: 0 auto 44px;
+  margin: 0 auto 32px;
   font-weight: 400;
   line-height: 1.6;
   font-style: italic;
 }
-.hero-mechanism strong { color: #aaa; font-style: normal; font-weight: 600; }
+.hero-mechanism strong { color: #cbd5e1; font-style: normal; font-weight: 600; }
 
 .numbers-block { margin: 0 auto 44px; }
 .numbers-main {
@@ -226,7 +226,7 @@ body {
 .hero-cta-note {
   font-family: var(--font-body);
   font-size: 12px;
-  color: #444;
+  color: #64748b;
   letter-spacing: 0.5px;
 }
 
@@ -477,7 +477,7 @@ body {
 .beliefs-sub {
   font-family: var(--font-body);
   font-size: 16px;
-  color: #666;
+  color: #94a3b8;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -768,11 +768,11 @@ body {
 .urgency-text {
   font-family: var(--font-body);
   font-size: 16px;
-  color: #666;
+  color: #94a3b8;
   line-height: 1.75;
   margin-bottom: 32px;
 }
-.urgency-text strong { color: #ccc; font-weight: 600; }
+.urgency-text strong { color: #e2e8f0; font-weight: 600; }
 .spots-counter {
   display: inline-flex;
   align-items: center;
@@ -784,7 +784,7 @@ body {
 .spots-label {
   font-family: var(--font-body);
   font-size: 13px;
-  color: #555;
+  color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -799,7 +799,7 @@ body {
 .spots-unit {
   font-family: var(--font-body);
   font-size: 12px;
-  color: #555;
+  color: #64748b;
   letter-spacing: 1px;
 }
 .urgency-btn {
@@ -886,10 +886,10 @@ body {
 .guarantee-text {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #888;
+  color: #94a3b8;
   line-height: 1.65;
 }
-.guarantee-text strong { color: #ccc; font-weight: 600; }
+.guarantee-text strong { color: #e2e8f0; font-weight: 600; }
 
 .final-btn {
   display: inline-block;
@@ -914,7 +914,7 @@ body {
   margin-top: 16px;
   font-family: var(--font-body);
   font-size: 12px;
-  color: #333;
+  color: #64748b;
   letter-spacing: 0.5px;
 }
 
@@ -976,43 +976,60 @@ footer a:hover { color: var(--red); }
 
 /* ── MOBILE ── */
 @media (max-width: 768px) {
-  .top-bar { font-size: 11px; letter-spacing: 1px; padding: 8px 16px; }
-  .navbar { padding: 16px 20px; }
-  .navbar-logo { font-size: 16px; }
-  .navbar-cta { padding: 8px 16px; font-size: 12px; }
-  .hero { padding: 60px 20px 52px; }
-  .hero-cta-btn { width: 100%; max-width: 360px; font-size: 15px; padding: 18px 32px; }
-  .story-section { padding: 56px 20px; }
-  .pain-section { padding: 56px 20px; }
-  .beliefs-section { padding: 60px 20px; }
-  .video-section { padding: 56px 20px; }
-  .proof-section { padding: 60px 20px; }
+  .top-bar { font-size: 10px; letter-spacing: 0.8px; padding: 8px 12px; }
+  .navbar { padding: 14px 20px; }
+  .navbar-logo { font-size: 15px; letter-spacing: 2px; }
+  .navbar-cta { padding: 8px 14px; font-size: 11px; letter-spacing: 1px; }
+  .hero { padding: 52px 20px 48px; }
+  .hero-qualifier { font-size: 10px; letter-spacing: 1.5px; padding: 6px 14px; }
+  .hero h1 { font-size: clamp(28px, 7vw, 48px); }
+  .hero-cta-btn { width: 100%; max-width: 340px; font-size: 15px; padding: 18px 24px; }
+  .story-section { padding: 52px 20px; }
+  .pain-section { padding: 52px 20px; }
+  .pain-cta-btn { width: 100%; max-width: 340px; font-size: 15px; padding: 16px 24px; }
+  .beliefs-section { padding: 56px 20px; }
+  .beliefs-grid { grid-template-columns: 1fr; gap: 3px; }
+  .belief-card { padding: 24px 20px; }
+  .video-section { padding: 52px 20px; }
+  .proof-section { padding: 56px 20px; }
   .proof-grid { grid-template-columns: 1fr; }
   .urgency-section { padding: 48px 20px; }
-  .final-section { padding: 64px 20px 48px; }
-  .final-btn { padding: 18px 36px; font-size: 16px; width: 100%; max-width: 360px; }
-  .guarantee-block { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
-  .numbers-main { letter-spacing: -2px; }
-  .numbers-labels { gap: 14px; }
-  .numbers-labels div { font-size: 12px; }
-  .beliefs-grid { grid-template-columns: 1fr; }
-  .ps-section { padding: 44px 20px; }
+  .urgency-btn { width: 100%; max-width: 340px; font-size: 15px; padding: 16px 24px; }
+  .spots-counter { width: 100%; max-width: 280px; justify-content: center; }
+  .final-section { padding: 60px 20px 48px; }
+  .final-btn { padding: 18px 32px; font-size: 16px; width: 100%; max-width: 340px; }
+  .guarantee-block { flex-direction: column; gap: 12px; text-align: center; padding: 20px; max-width: 100%; }
+  .ps-section { padding: 40px 20px; }
+  .calc-section { padding: 60px 20px 32px; }
 }
 @media (max-width: 480px) {
-  .hero { padding: 48px 16px 40px; }
-  .hero-qualifier { font-size: 10px; padding: 6px 14px; }
-  .numbers-main { font-size: 52px; letter-spacing: -2px; }
-  .numbers-sub { font-size: 11px; }
-  .pain-text { font-size: 17px; }
+  .top-bar { font-size: 9.5px; letter-spacing: 0.5px; }
+  .hero { padding: 44px 16px 40px; }
+  .hero h1 { font-size: clamp(26px, 8vw, 40px); line-height: 1.08; }
+  .hero-mechanism { font-size: 14px; margin-bottom: 24px; }
+  .hero-sub { font-size: 16px; margin-bottom: 28px; }
+  .story-headline { font-size: clamp(22px, 6vw, 32px); }
+  .pain-text { font-size: 16px; }
+  .pain-agitate { font-size: 15px; }
+  .pain-item { padding: 14px 16px; gap: 10px; }
   .pain-item-text { font-size: 14px; }
+  .beliefs-headline { font-size: clamp(22px, 6vw, 32px); }
   .proof-card .amount { font-size: 34px; }
-  .spots-counter { padding: 12px 20px; }
-  .spots-number { font-size: 30px; }
+  .spots-counter { padding: 12px 16px; }
+  .spots-number { font-size: 28px; }
+  .urgency-headline { font-size: clamp(22px, 6vw, 32px); }
   .footer-disclaimers { gap: 8px; }
   .footer-disclaimer { font-size: 9.5px; }
 }
+@media (max-width: 360px) {
+  .navbar-logo { font-size: 13px; }
+  .navbar-cta { font-size: 10px; padding: 7px 10px; }
+  .hero h1 { font-size: 24px; }
+  .hero-cta-btn, .pain-cta-btn, .urgency-btn, .final-btn { font-size: 14px; padding: 16px 20px; }
+}
 @supports (padding-top: env(safe-area-inset-top)) {
-  .hero { padding-top: max(80px, env(safe-area-inset-top) + 60px); }
+  .hero { padding-top: max(52px, calc(env(safe-area-inset-top) + 40px)); }
+  .navbar { padding-top: max(14px, env(safe-area-inset-top)); }
 }
 
 /* ── COOKIE BANNER ── */
@@ -1091,7 +1108,7 @@ footer a:hover { color: var(--red); }
 <body>
 
 <!-- ══════════ TOP BAR — SCARCITÀ (Kennedy) ══════════ -->
-<div class="top-bar">⚡ POSTI LIMITATI — Rimangono solo 10 posizioni per Luglio · Verifica subito se sei idoneo</div>
+<div class="top-bar">⚡ Solo 10 posti disponibili fino al 31 Luglio — Verifica subito se sei idoneo</div>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar">
