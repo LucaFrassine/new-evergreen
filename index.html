@@ -1032,6 +1032,44 @@ footer a:hover { color: var(--red); }
   .navbar { padding-top: max(14px, env(safe-area-inset-top)); }
 }
 
+/* ── QUIZ PERSONALIZZATO ── */
+.quiz-wrapper { max-width: 640px; margin: 0 auto; padding: 0 0 40px; }
+.quiz-progress-bar-wrap { background: var(--gray); height: 3px; margin-bottom: 10px; overflow: hidden; }
+.quiz-progress-bar-fill { height: 100%; background: var(--red); width: 25%; transition: width 0.4s ease; }
+.quiz-progress-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 32px; }
+.quiz-step { display: none; }
+.quiz-step.active { display: block; animation: qfade .3s ease; }
+@keyframes qfade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.quiz-question-text { font-family: var(--font-display); font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; text-transform: uppercase; color: var(--black); line-height: 1.1; margin-bottom: 28px; letter-spacing: -0.3px; }
+.quiz-options { display: flex; flex-direction: column; gap: 12px; }
+.quiz-option { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--white); border: 2px solid var(--gray); cursor: pointer; font-family: var(--font-body); font-size: 16px; font-weight: 500; color: var(--black); text-align: left; -webkit-appearance: none; touch-action: manipulation; transition: border-color .2s, background .2s; width: 100%; }
+.quiz-option:hover { border-color: var(--red); background: var(--red-light); }
+.quiz-option.selected { border-color: var(--red); background: var(--red-light); }
+.quiz-option-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s; }
+.quiz-option.selected .quiz-option-dot { border-color: var(--red); background: var(--red); }
+.quiz-option.selected .quiz-option-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; display: block; }
+.quiz-form-intro { font-family: var(--font-body); font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 28px; }
+.quiz-form-intro strong { color: var(--black); }
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray); background: var(--white); font-family: var(--font-body); font-size: 16px; color: var(--black); outline: none; transition: border-color .2s; -webkit-appearance: none; border-radius: 0; }
+.form-input:focus { border-color: var(--red); }
+.form-input::placeholder { color: #ccc; }
+.quiz-submit-btn { width: 100%; padding: 20px; background: var(--red); color: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border: none; cursor: pointer; transition: background .2s; margin-top: 8px; touch-action: manipulation; -webkit-appearance: none; }
+.quiz-submit-btn:hover { background: var(--red-dark); }
+.quiz-submit-btn:disabled { background: #999; cursor: not-allowed; }
+.form-privacy { font-family: var(--font-body); font-size: 11px; color: #bbb; text-align: center; margin-top: 12px; line-height: 1.5; }
+.quiz-thankyou { text-align: center; padding: 48px 0; }
+.quiz-ty-icon { font-size: 52px; margin-bottom: 20px; }
+.quiz-ty-headline { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 900; text-transform: uppercase; color: var(--black); line-height: 1.1; margin-bottom: 16px; }
+.quiz-ty-headline em { color: var(--red); font-style: normal; }
+.quiz-ty-body { font-family: var(--font-body); font-size: 17px; color: var(--text-muted); line-height: 1.75; max-width: 480px; margin: 0 auto; }
+.quiz-ty-body strong { color: var(--black); }
+@media (max-width: 480px) {
+  .quiz-option { padding: 14px 16px; font-size: 15px; gap: 12px; }
+  .quiz-question-text { font-size: clamp(20px, 6vw, 28px); }
+}
+
 /* ── COOKIE BANNER ── */
 .cookie-banner {
   position: fixed;
@@ -1287,7 +1325,93 @@ footer a:hover { color: var(--red); }
   <h2 class="calc-headline">Quanto potresti guadagnare<br><em>già dal primo mese?</em></h2>
   <p class="calc-sub">Rispondi a 3 domande. Ti diciamo quanto potresti guadagnare e con quale percorso esatto — basato sulla tua situazione reale, non su medie generiche.</p>
   <p class="calc-urgency">⏰ Ancora <span class="spots-live">34</span> persone possono calcolare il loro potenziale — scopri se sei tra loro</p>
-  <iframe src="https://go.automatoai.it/widget/quiz/5FvWWRjM20vbLiDVVVTU" style="border:none;width:100%;" scrolling="no" id="5FvWWRjM20vbLiDVVVTU" title="quiz"></iframe>
+  <div class="quiz-wrapper" id="quiz-wrapper">
+
+    <div class="quiz-progress-bar-wrap">
+      <div class="quiz-progress-bar-fill" id="quiz-progress-bar"></div>
+    </div>
+    <div class="quiz-progress-label" id="quiz-progress-label">Domanda 1 di 3</div>
+
+    <!-- Step 1 -->
+    <div class="quiz-step active" id="step-1">
+      <div class="quiz-question-text">Qual è la tua situazione attuale?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="selectOption(1,'dipendente-cambiare',this)">
+          <div class="quiz-option-dot"></div>Lavoro dipendente e voglio cambiare
+        </button>
+        <button class="quiz-option" onclick="selectOption(1,'seconda-entrata',this)">
+          <div class="quiz-option-dot"></div>Cerco una seconda entrata senza lasciare il lavoro
+        </button>
+        <button class="quiz-option" onclick="selectOption(1,'da-zero',this)">
+          <div class="quiz-option-dot"></div>Non lavoro e voglio iniziare da zero
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="quiz-step" id="step-2">
+      <div class="quiz-question-text">Quante ore a settimana puoi dedicare?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="selectOption(2,'meno-10',this)">
+          <div class="quiz-option-dot"></div>Meno di 10 ore
+        </button>
+        <button class="quiz-option" onclick="selectOption(2,'10-20',this)">
+          <div class="quiz-option-dot"></div>10–20 ore
+        </button>
+        <button class="quiz-option" onclick="selectOption(2,'piu-20',this)">
+          <div class="quiz-option-dot"></div>Più di 20 ore
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="quiz-step" id="step-3">
+      <div class="quiz-question-text">Qual è il guadagno che cambierebbe davvero la tua vita?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="selectOption(3,'1500-3000',this)">
+          <div class="quiz-option-dot"></div>1.500€ – 3.000€ in più al mese
+        </button>
+        <button class="quiz-option" onclick="selectOption(3,'3000-5000',this)">
+          <div class="quiz-option-dot"></div>3.000€ – 5.000€ al mese
+        </button>
+        <button class="quiz-option" onclick="selectOption(3,'oltre-5000',this)">
+          <div class="quiz-option-dot"></div>Oltre 5.000€ al mese
+        </button>
+      </div>
+    </div>
+
+    <!-- Form contatto -->
+    <div class="quiz-step" id="step-form">
+      <div class="quiz-question-text">Quasi fatto —<br>dove ti contatto?</div>
+      <p class="quiz-form-intro">Inserisci i tuoi dati. <strong>Luca analizza ogni risposta personalmente</strong> e ti contatta entro 24 ore — con una chiamata, non un'email automatica.</p>
+      <form onsubmit="submitQuizForm(event)" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="quiz-name">Nome e cognome *</label>
+          <input class="form-input" type="text" id="quiz-name" placeholder="Mario Rossi" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quiz-email">Email *</label>
+          <input class="form-input" type="email" id="quiz-email" placeholder="mario@email.it" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quiz-phone">Telefono *</label>
+          <input class="form-input" type="tel" id="quiz-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
+        </div>
+        <button type="submit" class="quiz-submit-btn" id="quiz-submit-btn">Calcola il mio potenziale →</button>
+        <p class="form-privacy">Nessuno spam. I tuoi dati sono al sicuro e vengono usati solo per contattarti.</p>
+      </form>
+    </div>
+
+    <!-- Thank you -->
+    <div class="quiz-step" id="step-thankyou">
+      <div class="quiz-thankyou">
+        <div class="quiz-ty-icon">✅</div>
+        <div class="quiz-ty-headline">Fatto.<br><em>Ci vediamo presto.</em></div>
+        <p class="quiz-ty-body">Luca analizzerà le tue risposte e ti contatterà personalmente entro <strong>24 ore</strong>. Controlla il telefono — arriva una chiamata, non un'email automatica.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- ══════════ PROOF — Specificità (Kennedy) ══════════ -->
@@ -1390,8 +1514,6 @@ footer a:hover { color: var(--red); }
   </div>
 </footer>
 
-<script src="https://go.automatoai.it/js/form_embed.js"></script>
-
 <script>
 function scrollToCalc() {
   document.getElementById('calcolatore').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1399,9 +1521,81 @@ function scrollToCalc() {
 
 document.querySelector('.navbar-cta').addEventListener('click', function(e) {
   e.preventDefault();
-  const target = document.getElementById('calcolatore');
+  var target = document.getElementById('calcolatore');
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+
+/* ── QUIZ LOGIC ── */
+var quizAnswers = {};
+
+function selectOption(step, value, el) {
+  el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(function(o) {
+    o.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  quizAnswers['q' + step] = value;
+  setTimeout(function() {
+    goToStep(step === 3 ? 'form' : String(step + 1), step === 3 ? 4 : step + 1);
+  }, 380);
+}
+
+function goToStep(id, progressStep) {
+  document.querySelectorAll('.quiz-step').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById('step-' + id).classList.add('active');
+  var labels = {
+    1: 'Domanda 1 di 3',
+    2: 'Domanda 2 di 3',
+    3: 'Domanda 3 di 3',
+    4: 'Quasi fatto — inserisci i tuoi dati'
+  };
+  document.getElementById('quiz-progress-label').textContent = labels[progressStep] || '';
+  document.getElementById('quiz-progress-bar').style.width = ((progressStep / 4) * 100) + '%';
+  document.getElementById('calcolatore').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function submitQuizForm(e) {
+  e.preventDefault();
+  var name  = document.getElementById('quiz-name').value.trim();
+  var email = document.getElementById('quiz-email').value.trim();
+  var phone = document.getElementById('quiz-phone').value.trim();
+  if (!name || !email || !phone) return;
+
+  var btn = document.getElementById('quiz-submit-btn');
+  btn.textContent = 'Invio in corso...';
+  btn.disabled = true;
+
+  var nameParts = name.split(' ');
+  var payload = {
+    firstName: nameParts[0],
+    lastName:  nameParts.slice(1).join(' '),
+    email:     email,
+    phone:     phone,
+    q1:        quizAnswers.q1 || '',
+    q2:        quizAnswers.q2 || '',
+    q3:        quizAnswers.q3 || ''
+  };
+
+  function showThankyou() {
+    document.getElementById('step-form').classList.remove('active');
+    document.getElementById('step-thankyou').classList.add('active');
+    document.getElementById('quiz-progress-bar').style.width = '100%';
+    document.getElementById('quiz-progress-label').textContent = '';
+    document.getElementById('calcolatore').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* GoHighLevel webhook — inserisci l'URL qui quando sei pronto */
+  var webhookUrl = '';
+
+  if (webhookUrl) {
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(showThankyou).catch(showThankyou);
+  } else {
+    showThankyou();
+  }
+}
 </script>
 
 <script>
