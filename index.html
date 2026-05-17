@@ -1108,7 +1108,7 @@ footer a:hover { color: var(--red); }
 <body>
 
 <!-- ══════════ TOP BAR — SCARCITÀ (Kennedy) ══════════ -->
-<div class="top-bar">⚡ Solo 10 posti disponibili fino al 31 Luglio — Verifica subito se sei idoneo</div>
+<div class="top-bar">⚡ Ancora <span class="spots-live">34</span> persone possono calcolare il loro potenziale — scopri se sei tra loro</div>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar">
@@ -1325,21 +1325,21 @@ footer a:hover { color: var(--red); }
 <!-- ══════════ URGENCY — Scarsità Reale (Kennedy) ══════════ -->
 <section class="urgency-section">
   <div class="urgency-inner">
-    <div class="urgency-timer">Offerta attiva fino al 31 Luglio 2026</div>
-    <h3 class="urgency-headline">Perché solo<br><em>10 posti?</em></h3>
+    <div class="urgency-timer">Aggiornato in tempo reale</div>
+    <h3 class="urgency-headline">Ancora <em><span class="spots-live">34</span> persone</em><br>possono scoprire quanto potrebbero guadagnare</h3>
     <p class="urgency-text">
-      Non è una tattica di marketing. È un limite reale che mi impongo ogni mese.<br><br>
-      <strong>Non posso seguire personalmente più di 50 nuovi venditori e garantire i risultati che vedi su questa pagina.</strong> Ogni posto in eccesso significherebbe meno qualità per tutti. Per questo la pagina viene chiusa non appena i posti sono esauriti — senza lista d'attesa, senza eccezioni.
+      Ogni volta che qualcuno completa il calcolo, uno dei posti disponibili per la valutazione gratuita viene occupato.<br><br>
+      <strong>Quando il contatore arriva a zero, il calcolatore viene disattivato — e con esso l'accesso alla valutazione personalizzata.</strong> Non c'è lista d'attesa. Non c'è "ci riprovo domani".
     </p>
     <div class="spots-counter">
       <div>
         <div class="spots-label">Posti rimasti</div>
-        <div class="spots-unit">per Luglio 2026</div>
+        <div class="spots-unit">per la valutazione gratuita</div>
       </div>
-      <div class="spots-number">10</div>
+      <div class="spots-number spots-live">34</div>
     </div>
     <br>
-    <button class="urgency-btn" onclick="scrollToCalc()">Verifica subito se sei idoneo →</button>
+    <button class="urgency-btn" onclick="scrollToCalc()">Calcola il tuo potenziale adesso →</button>
   </div>
 </section>
 
@@ -1358,14 +1358,14 @@ footer a:hover { color: var(--red); }
   </div>
   <br>
   <button class="final-btn" onclick="scrollToCalc()">Calcola il tuo potenziale adesso →</button>
-  <p class="final-note">60 secondi · Gratis · Nessuna carta di credito · Solo 10 posti rimasti</p>
+  <p class="final-note">60 secondi · Gratis · Nessuna carta di credito · Ancora <span class="spots-live">34</span> posti disponibili</p>
 </section>
 
 <!-- ══════════ P.S. — Kennedy's Essential Closer ══════════ -->
 <section class="ps-section">
   <div class="ps-inner">
-    <p><strong>P.S.</strong> — Se stai leggendo questo senza aver ancora completato il quiz, probabilmente c'è una parte di te che dubita. È normale. Ma risponditi a questa domanda: tra 6 mesi, dove sarai se non cambia niente? La stessa cifra. La stessa sensazione di venerdì. Lo stesso calcolo a fine mese. Il quiz non ti costa niente. L'alternativa, sì — ogni mese.</p>
-    <p><strong>P.P.S.</strong> — I 10 posti non sono un numero inventato. È il limite che mi impongo ogni mese per garantire qualità. Quando sono esauriti, questa pagina viene chiusa. <em>Non c'è lista d'attesa.</em> Non c'è "ci riprovo il mese prossimo". Il momento è adesso.</p>
+    <p><strong>P.S.</strong> — Se stai ancora leggendo senza aver compilato il quiz, lasciami dirti una cosa sola. Quella rabbia che senti — quella che ti tiene sveglio — è esattamente dove ero io quella notte, nel buio, con la fabbrica in testa. Il quiz non risolve niente da solo. Ma ti dice dove sei adesso e dove potresti essere. È il primo passo. Quello che ho fatto anch'io.</p>
+    <p><strong>P.P.S.</strong> — Quel numero in cima alla pagina non è un trucco grafico. Scende davvero, in tempo reale, ogni volta che qualcuno completa il calcolo. <em>Quando arriva a zero, il calcolatore viene disattivato.</em> Non domani. Adesso — mentre stai leggendo questo.</p>
   </div>
 </section>
 
@@ -1402,6 +1402,31 @@ document.querySelector('.navbar-cta').addEventListener('click', function(e) {
   const target = document.getElementById('calcolatore');
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+</script>
+
+<script>
+(function() {
+  var MIN = 11;
+  var START = 34;
+  var stored = parseInt(sessionStorage.getItem('quiz_spots'));
+  var count = (stored && stored >= MIN && stored <= START) ? stored : START;
+
+  function updateAll() {
+    document.querySelectorAll('.spots-live').forEach(function(el) {
+      el.textContent = count;
+    });
+  }
+
+  updateAll();
+
+  setInterval(function() {
+    if (count > MIN) {
+      count--;
+      sessionStorage.setItem('quiz_spots', count);
+      updateAll();
+    }
+  }, 10000);
+})();
 </script>
 
 <!-- ══════════ COOKIE BANNER ══════════ -->
