@@ -1078,43 +1078,28 @@ footer a:hover { color: var(--red); }
   .quiz-question-text { font-size: clamp(20px, 6vw, 28px); }
 }
 
-/* ── FLOATING VIDEO BUTTON ── */
-.float-video-btn {
-  position: fixed;
-  bottom: 28px;
-  right: 24px;
-  z-index: 9000;
-  display: flex;
+/* ── VIDEO INLINE BUTTON ── */
+.hero-video-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: var(--red);
-  color: #fff;
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 14px 20px;
-  border: none;
+  gap: 8px;
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 8px 18px;
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(200,16,46,0.45);
+  margin-bottom: 28px;
   touch-action: manipulation;
   -webkit-appearance: none;
-  animation: floatBounce 2s ease-in-out infinite;
-  transition: opacity .4s, transform .4s, background .2s;
-  opacity: 1;
-  pointer-events: auto;
+  transition: color .2s, border-color .2s;
 }
-.float-video-btn:hover { background: var(--red-dark); animation: none; }
-.float-video-btn .fvb-icon { font-size: 18px; flex-shrink: 0; }
-@keyframes floatBounce {
-  0%, 100% { transform: translateY(0); box-shadow: 0 4px 24px rgba(200,16,46,0.45); }
-  50%  { transform: translateY(-7px); box-shadow: 0 10px 32px rgba(200,16,46,0.5); }
-}
-@media (max-width: 480px) {
-  .float-video-btn { bottom: 80px; right: 16px; font-size: 13px; padding: 12px 16px; gap: 8px; }
-  .float-video-btn .fvb-icon { font-size: 16px; }
-}
+.hero-video-btn:hover { color: var(--white); border-color: #64748b; }
+.hero-video-btn .hvb-icon { font-size: 11px; color: var(--red); }
 
 /* ── COOKIE BANNER ── */
 .cookie-banner {
@@ -1205,6 +1190,9 @@ footer a:hover { color: var(--red); }
   <div class="hero-qualifier">Solo per chi è stanco di scambiare tempo per soldi</div>
   <div class="hero-eyebrow">Sales Coach — Vendita sul Campo dal 2018</div>
   <h1>La Professione che le Aziende Italiane Pagano <em>3.000–8.000€/Mese</em> — e che Quasi Nessuno Sa di Poter Fare</h1>
+  <button class="hero-video-btn" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth',block:'start'})">
+    <span class="hvb-icon">▶</span> Vai al video
+  </button>
   <p class="hero-mechanism">Non serve laurea. Non serve esperienza. Serve <strong>il Sistema delle 7 Domande</strong> — e la volontà di applicarlo.</p>
   <p class="hero-sub">
     Completa il quiz in <strong>60 secondi</strong> e scopri quanto potresti guadagnare — e con quale percorso esatto arrivarci.
@@ -1654,44 +1642,6 @@ function submitQuizForm(e) {
 </script>
 
 <script>
-var _fvBtn     = document.getElementById('float-video-btn');
-var _fvSection = document.getElementById('video');
-
-function hideFloatBtn() {
-  if (!_fvBtn) return;
-  _fvBtn.style.animation   = 'none';
-  _fvBtn.style.transition  = 'opacity .35s, transform .35s';
-  _fvBtn.style.opacity     = '0';
-  _fvBtn.style.transform   = 'scale(0.75)';
-  _fvBtn.style.pointerEvents = 'none';
-}
-function showFloatBtn() {
-  if (!_fvBtn) return;
-  _fvBtn.style.pointerEvents = 'auto';
-  _fvBtn.style.transition  = 'opacity .35s, transform .35s';
-  _fvBtn.style.opacity     = '1';
-  _fvBtn.style.transform   = '';
-  setTimeout(function() {
-    _fvBtn.style.animation = '';
-    _fvBtn.style.transition = '';
-  }, 350);
-}
-
-function floatVideoClick() {
-  hideFloatBtn();
-  if (_fvSection) _fvSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-if (_fvSection) {
-  window.addEventListener('scroll', function() {
-    var rect = _fvSection.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * 0.8) {
-      hideFloatBtn();
-    } else {
-      showFloatBtn();
-    }
-  }, { passive: true });
-}
 
 (function() {
   var MIN = 11;
@@ -1716,11 +1666,6 @@ if (_fvSection) {
   }, 10000);
 })();
 </script>
-
-<!-- ══════════ FLOATING VIDEO BUTTON ══════════ -->
-<button class="float-video-btn" id="float-video-btn" onclick="floatVideoClick()">
-  <span class="fvb-icon">▶</span> Guarda il video
-</button>
 
 <!-- ══════════ COOKIE BANNER ══════════ -->
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Consenso cookie">
