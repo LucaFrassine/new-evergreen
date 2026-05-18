@@ -1101,7 +1101,15 @@ footer a:hover { color: var(--red); }
   touch-action: manipulation;
   -webkit-appearance: none;
   animation: floatBounce 2s ease-in-out infinite;
-  transition: background .2s;
+  transition: opacity .4s, transform .4s, background .2s;
+  opacity: 1;
+  pointer-events: auto;
+}
+.float-video-btn.hidden {
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  pointer-events: none;
+  animation: none;
 }
 .float-video-btn:hover { background: var(--red-dark); animation: none; }
 .float-video-btn .fvb-icon { font-size: 18px; flex-shrink: 0; }
@@ -1653,6 +1661,27 @@ function submitQuizForm(e) {
 
 <script>
 (function() {
+  var btn = document.getElementById('float-video-btn');
+  var videoSection = document.getElementById('video');
+
+  function floatVideoClick() {
+    btn.classList.add('hidden');
+    videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  window.floatVideoClick = floatVideoClick;
+
+  window.addEventListener('scroll', function() {
+    if (!videoSection) return;
+    var rect = videoSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.75) {
+      btn.classList.add('hidden');
+    } else {
+      btn.classList.remove('hidden');
+    }
+  }, { passive: true });
+})();
+
+(function() {
   var MIN = 11;
   var START = 34;
   var stored = parseInt(sessionStorage.getItem('quiz_spots'));
@@ -1677,7 +1706,7 @@ function submitQuizForm(e) {
 </script>
 
 <!-- ══════════ FLOATING VIDEO BUTTON ══════════ -->
-<button class="float-video-btn" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth',block:'start'})">
+<button class="float-video-btn" id="float-video-btn" onclick="floatVideoClick()">
   <span class="fvb-icon">▶</span> Guarda il video
 </button>
 
