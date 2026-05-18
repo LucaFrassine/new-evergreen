@@ -1581,7 +1581,9 @@ function submitQuizForm(e) {
   };
 
   function showThankyou() {
-    window.location.href = 'thankyou.html';
+    var email = document.getElementById('quiz-email').value.trim();
+    var name  = document.getElementById('quiz-name').value.trim();
+    window.location.href = 'thankyou.html?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
   }
 
   var webhookUrl = 'https://services.leadconnectorhq.com/hooks/EKDcSusSbbWCUYQ2J1G0/webhook-trigger/e143354b-ca09-4520-bca9-7a04ec3e3be0';
