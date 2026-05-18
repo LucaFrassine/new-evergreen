@@ -1051,6 +1051,11 @@ footer a:hover { color: var(--red); }
 .quiz-option.selected .quiz-option-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; display: block; }
 .quiz-form-intro { font-family: var(--font-body); font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 28px; }
 .quiz-form-intro strong { color: var(--black); }
+.quiz-benefits { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.quiz-benefit-item { display: flex; align-items: flex-start; gap: 12px; background: var(--off-white); border-left: 3px solid var(--red); padding: 12px 16px; }
+.quiz-benefit-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.quiz-benefit-text { font-family: var(--font-body); font-size: 14px; color: var(--black); line-height: 1.5; font-weight: 500; }
+.quiz-benefit-text span { color: var(--text-muted); font-weight: 400; }
 .form-group { margin-bottom: 20px; }
 .form-label { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
 .form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray); background: var(--white); font-family: var(--font-body); font-size: 16px; color: var(--black); outline: none; transition: border-color .2s; -webkit-appearance: none; border-radius: 0; }
@@ -1388,8 +1393,17 @@ footer a:hover { color: var(--red); }
     <!-- Form contatto -->
     <div class="quiz-step" id="step-form">
       <button class="quiz-back-btn" onclick="goToStep('3',3)">← Domanda precedente</button>
-      <div class="quiz-question-text">Quasi fatto —<br>dove ti contatto?</div>
-      <p class="quiz-form-intro"><strong>Luca analizza ogni risposta personalmente</strong> e ti dà il risultato direttamente su WhatsApp o in telefonata.<br><br>Inserisci anche la mail dove riceverai <strong>la mappa dei settori con i range di guadagno reali per settore</strong> e come contattare le aziende oggi stesso.</p>
+      <div class="quiz-question-text" style="font-size:clamp(20px,4vw,28px);margin-bottom:16px;">Inserisci i tuoi dati —<br>ti mando il risultato gratis</div>
+      <div class="quiz-benefits">
+        <div class="quiz-benefit-item">
+          <div class="quiz-benefit-icon">💬</div>
+          <div class="quiz-benefit-text">Luca analizza le tue risposte e ti manda il risultato <span>— quanto puoi guadagnare nei primi 6 mesi —</span> <strong>su WhatsApp o in chiamata</strong></div>
+        </div>
+        <div class="quiz-benefit-item">
+          <div class="quiz-benefit-icon">📧</div>
+          <div class="quiz-benefit-text">Ricevi via email <strong>la mappa dei settori</strong> <span>con i range di guadagno reali e come contattare le aziende oggi stesso</span></div>
+        </div>
+      </div>
       <form onsubmit="submitQuizForm(event)" novalidate>
         <div class="form-group">
           <label class="form-label" for="quiz-name">Nome e cognome *</label>
