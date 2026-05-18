@@ -1105,12 +1105,6 @@ footer a:hover { color: var(--red); }
   opacity: 1;
   pointer-events: auto;
 }
-.float-video-btn.hidden {
-  opacity: 0;
-  transform: translateY(20px) scale(0.85);
-  pointer-events: none;
-  animation: none;
-}
 .float-video-btn:hover { background: var(--red-dark); animation: none; }
 .float-video-btn .fvb-icon { font-size: 18px; flex-shrink: 0; }
 @keyframes floatBounce {
@@ -1660,26 +1654,44 @@ function submitQuizForm(e) {
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('float-video-btn');
-  var videoSection = document.getElementById('video');
+var _fvBtn     = document.getElementById('float-video-btn');
+var _fvSection = document.getElementById('video');
 
-  function floatVideoClick() {
-    btn.classList.add('hidden');
-    videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  window.floatVideoClick = floatVideoClick;
+function hideFloatBtn() {
+  if (!_fvBtn) return;
+  _fvBtn.style.animation   = 'none';
+  _fvBtn.style.transition  = 'opacity .35s, transform .35s';
+  _fvBtn.style.opacity     = '0';
+  _fvBtn.style.transform   = 'scale(0.75)';
+  _fvBtn.style.pointerEvents = 'none';
+}
+function showFloatBtn() {
+  if (!_fvBtn) return;
+  _fvBtn.style.pointerEvents = 'auto';
+  _fvBtn.style.transition  = 'opacity .35s, transform .35s';
+  _fvBtn.style.opacity     = '1';
+  _fvBtn.style.transform   = '';
+  setTimeout(function() {
+    _fvBtn.style.animation = '';
+    _fvBtn.style.transition = '';
+  }, 350);
+}
 
+function floatVideoClick() {
+  hideFloatBtn();
+  if (_fvSection) _fvSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+if (_fvSection) {
   window.addEventListener('scroll', function() {
-    if (!videoSection) return;
-    var rect = videoSection.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * 0.75) {
-      btn.classList.add('hidden');
+    var rect = _fvSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.8) {
+      hideFloatBtn();
     } else {
-      btn.classList.remove('hidden');
+      showFloatBtn();
     }
   }, { passive: true });
-})();
+}
 
 (function() {
   var MIN = 11;
