@@ -1581,11 +1581,7 @@ function submitQuizForm(e) {
   };
 
   function showThankyou() {
-    document.getElementById('step-form').classList.remove('active');
-    document.getElementById('step-thankyou').classList.add('active');
-    document.getElementById('quiz-progress-bar').style.width = '100%';
-    document.getElementById('quiz-progress-label').textContent = '';
-    document.getElementById('calcolatore').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.location.href = 'thankyou.html';
   }
 
   var webhookUrl = 'https://services.leadconnectorhq.com/hooks/EKDcSusSbbWCUYQ2J1G0/webhook-trigger/e143354b-ca09-4520-bca9-7a04ec3e3be0';

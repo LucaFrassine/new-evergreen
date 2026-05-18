@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#C8102E">
+<title>Fatto. Ci vediamo presto — Luca Frassine</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0C1F;
+  --red-light: rgba(200,16,46,0.08);
+  --black: #0F172A;
+  --off-black: #1E293B;
+  --white: #FFFFFF;
+  --off-white: #F8F7F4;
+  --gray: #EBEBEB;
+  --gray2: #D0D0D0;
+  --text-muted: #666;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  background: var(--black);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.navbar-logo span { color: var(--red); }
+
+/* ── HERO CONFIRM ── */
+.confirm-section {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 72px 24px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.confirm-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200,16,46,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.confirm-badge {
+  display: inline-block;
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+.confirm-eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+.confirm-headline {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.confirm-headline em { color: var(--red); font-style: normal; }
+.confirm-body {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2vw, 20px);
+  color: #94a3b8;
+  max-width: 620px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+}
+.confirm-body strong { color: var(--white); font-weight: 600; }
+
+/* ── STEPS ── */
+.steps-section {
+  background: var(--off-white);
+  padding: 64px 24px;
+  border-top: 3px solid var(--red);
+}
+.steps-inner { max-width: 860px; margin: 0 auto; }
+.steps-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.steps-headline {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 40px;
+  letter-spacing: -0.3px;
+  text-align: center;
+}
+.steps-headline em { color: var(--red); font-style: normal; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.step-card {
+  background: var(--white);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step-number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  opacity: 0.25;
+}
+.step-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--black);
+  letter-spacing: 0.3px;
+}
+.step-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.step-text strong { color: var(--black); font-weight: 600; }
+
+/* ── VIDEO SECTION ── */
+.video-section {
+  background: var(--white);
+  padding: 80px 24px;
+  border-top: 1px solid var(--gray);
+}
+.video-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.video-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+.video-headline {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+.video-headline em { color: var(--red); font-style: normal; }
+.video-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 2px solid rgba(200,16,46,0.3);
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+.video-note {
+  margin-top: 20px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+}
+
+/* ── SURVEY SECTION ── */
+.survey-section {
+  background: var(--off-white);
+  padding: 80px 24px 40px;
+  border-top: 3px solid var(--red);
+}
+.survey-eyebrow {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+.survey-headline {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  margin-bottom: 12px;
+  line-height: 1.05;
+  color: var(--black);
+}
+.survey-headline em { color: var(--red); font-style: normal; }
+.survey-sub {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+.survey-sub strong { color: var(--black); }
+
+/* ── FOOTER ── */
+footer {
+  background: #060D1A;
+  color: #333;
+  text-align: center;
+  padding: 36px 24px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.8;
+}
+footer a { color: #444; text-decoration: none; }
+footer a:hover { color: var(--red); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .navbar { padding: 14px 20px; }
+  .navbar-logo { font-size: 15px; }
+  .confirm-section { padding: 52px 20px 48px; }
+  .steps-section { padding: 52px 20px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 3px; }
+  .video-section { padding: 52px 20px; }
+  .survey-section { padding: 60px 20px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar">
+  <div class="navbar-logo">LUCA <span>FRASSINE</span></div>
+</nav>
+
+<!-- ══════════ CONFERMA ══════════ -->
+<section class="confirm-section">
+  <div class="confirm-badge">✅</div>
+  <div class="confirm-eyebrow">Registrazione completata</div>
+  <h1 class="confirm-headline">Fatto.<br><em>Ora aspettati due cose.</em></h1>
+  <p class="confirm-body">
+    <strong>1. Controlla la mail</strong> — ti arriva la mappa dei settori con i range di guadagno reali e come contattare le aziende oggi stesso.<br><br>
+    <strong>2. Tieni il telefono vicino</strong> — Luca analizzerà le tue risposte e ti contatterà su WhatsApp o in chiamata con il tuo risultato personale: quanto potresti realizzare nei primi 6 mesi, in base a quello che hai compilato.
+  </p>
+</section>
+
+<!-- ══════════ PROSSIMI STEP ══════════ -->
+<section class="steps-section">
+  <div class="steps-inner">
+    <div class="steps-label">Cosa succede adesso</div>
+    <h2 class="steps-headline">I tuoi prossimi<br><em>3 passi</em></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-title">Guarda il video</div>
+        <p class="step-text">Luca ti spiega esattamente <strong>come funziona il percorso</strong>, cosa farai nei primi 30 giorni e perché questo sistema funziona anche se non hai mai venduto niente.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-title">Completa il questionario</div>
+        <p class="step-text">5 domande veloci che permettono a Luca di <strong>prepararsi prima della chiamata</strong> — così non perdi tempo e arrivi direttamente al punto.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-title">Aspetta la chiamata</div>
+        <p class="step-text">Luca ti contatta personalmente su <strong>WhatsApp o in telefonata</strong> con il risultato della tua analisi — entro 24 ore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ VIDEO VSL ══════════ -->
+<section class="video-section">
+  <div class="video-inner">
+    <div class="video-label">Guarda prima di tutto il resto</div>
+    <h2 class="video-headline">Cosa succede<br><em>dopo questa pagina</em></h2>
+    <p class="video-sub">Luca ti spiega il percorso esatto — cosa impari, come funziona il sistema e perché i risultati che hai visto sulla pagina precedente sono reali.</p>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/_98XhvcyAuY?rel=0&modestbranding=1"
+        title="Luca Frassine — Il percorso"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-note">↓ Dopo il video, completa il questionario qui sotto</p>
+  </div>
+</section>
+
+<!-- ══════════ SURVEY ══════════ -->
+<section class="survey-section">
+  <div class="survey-eyebrow">Ultimo passo</div>
+  <h2 class="survey-headline">Aiutami a prepararmi<br><em>per la tua chiamata</em></h2>
+  <p class="survey-sub">
+    5 domande veloci. Le tue risposte permettono a Luca di analizzare la tua situazione in anticipo — così la chiamata va dritta al punto, senza perder tempo.
+  </p>
+  <iframe src="https://go.automatoai.it/widget/survey/cHY6Rzqnde3xITDheFTi" style="border:none;width:100%;min-height:600px;" scrolling="no" id="cHY6Rzqnde3xITDheFTi" title="survey"></iframe>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  © 2026 Luca Frassine — Tutti i diritti riservati &nbsp;·&nbsp;
+  <a href="https://docs.google.com/document/d/1YSi7Bkkm6seKDexQgJScU1cCEy6tEpZIyARKbVbBBV4/edit" rel="noopener">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="https://docs.google.com/document/d/1V9-z7tf6dZW7sQOv6s7376In8VPD3TxdzeaU8ynjfuc/edit" rel="noopener">Termini e Condizioni</a>
+</footer>
+
+<script src="https://go.automatoai.it/js/form_embed.js"></script>
+
+</body>
+</html>
