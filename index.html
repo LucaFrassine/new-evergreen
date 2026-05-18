@@ -1078,6 +1078,42 @@ footer a:hover { color: var(--red); }
   .quiz-question-text { font-size: clamp(20px, 6vw, 28px); }
 }
 
+/* ── FLOATING VIDEO BUTTON ── */
+.float-video-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(200,16,46,0.45);
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  animation: floatBounce 2s ease-in-out infinite;
+  transition: background .2s;
+}
+.float-video-btn:hover { background: var(--red-dark); animation: none; }
+.float-video-btn .fvb-icon { font-size: 18px; flex-shrink: 0; }
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); box-shadow: 0 4px 24px rgba(200,16,46,0.45); }
+  50%  { transform: translateY(-7px); box-shadow: 0 10px 32px rgba(200,16,46,0.5); }
+}
+@media (max-width: 480px) {
+  .float-video-btn { bottom: 80px; right: 16px; font-size: 13px; padding: 12px 16px; gap: 8px; }
+  .float-video-btn .fvb-icon { font-size: 16px; }
+}
+
 /* ── COOKIE BANNER ── */
 .cookie-banner {
   position: fixed;
@@ -1310,7 +1346,7 @@ footer a:hover { color: var(--red); }
 </section>
 
 <!-- ══════════ VIDEO SECTION ══════════ -->
-<section class="video-section">
+<section class="video-section" id="video">
   <div class="video-inner">
     <div class="video-label">La via d'uscita concreta</div>
     <h2 class="video-headline">Prima di compilare il quiz,<br><em>guarda questo.</em></h2>
@@ -1639,6 +1675,11 @@ function submitQuizForm(e) {
   }, 10000);
 })();
 </script>
+
+<!-- ══════════ FLOATING VIDEO BUTTON ══════════ -->
+<button class="float-video-btn" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth',block:'start'})">
+  <span class="fvb-icon">▶</span> Guarda il video
+</button>
 
 <!-- ══════════ COOKIE BANNER ══════════ -->
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Consenso cookie">
