@@ -147,6 +147,19 @@ footer a:hover { color: var(--red); }
   .btn-primary, .btn-outline { font-size: 14px; padding: 15px 20px; }
 }
 </style>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1453532389593829');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1453532389593829&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -373,6 +386,7 @@ function surveyComplete() {
 
   var bookingSection = document.getElementById('booking-section');
   bookingSection.style.display = 'block';
+  if (typeof fbq !== 'undefined') fbq('track', 'Schedule');
   setTimeout(function() {
     bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 200);
