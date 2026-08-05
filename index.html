@@ -157,6 +157,34 @@ body {
   line-height: 1.6;
 }
 .hero-sub strong { color: #94a3b8; font-weight: 600; }
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #64748b;
+}
 .hero-arrow {
   margin-top: 32px;
   color: var(--red);
@@ -168,13 +196,13 @@ body {
   50% { transform: translateY(8px); }
 }
 
-/* ── QUIZ SECTION ── */
-.calc-section {
+/* ── GUIDE SECTION ── */
+.guide-section {
   background: var(--white);
   padding: 72px 24px 40px;
   border-top: 3px solid var(--red);
 }
-.calc-eyebrow {
+.guide-eyebrow {
   text-align: center;
   font-family: var(--font-display);
   font-size: 11px;
@@ -184,7 +212,7 @@ body {
   color: var(--red);
   margin-bottom: 16px;
 }
-.calc-headline {
+.guide-headline {
   text-align: center;
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 52px);
@@ -194,8 +222,8 @@ body {
   margin-bottom: 12px;
   line-height: 1.05;
 }
-.calc-headline em { color: var(--red); font-style: normal; }
-.calc-sub {
+.guide-headline em { color: var(--red); font-style: normal; }
+.guide-sub {
   text-align: center;
   font-family: var(--font-body);
   font-size: 16px;
@@ -205,6 +233,64 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ── CHI È LUCA FRASSINE ── */
+.who-section {
+  background: var(--white);
+  padding: 80px 24px;
+  border-top: 1px solid var(--gray);
+}
+.who-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.who-photo { flex: 0 0 280px; }
+.who-photo img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+  border: 2px solid rgba(200,16,46,0.3);
+}
+.who-content { flex: 1; min-width: 0; }
+.who-headline {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.who-headline em { color: var(--red); font-style: normal; }
+.who-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.who-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+.who-stat { display: flex; flex-direction: column; gap: 4px; }
+.who-stat-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+}
+.who-stat-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 /* ── STORY / EPIPHANY BRIDGE ── */
@@ -367,12 +453,28 @@ body {
   font-weight: 400;
 }
 .proof-card p strong { font-weight: 600; }
+.proof-screenshot {
+  margin: 40px auto 0;
+  max-width: 900px;
+  border: 2px solid rgba(200,16,46,0.3);
+}
+.proof-screenshot img { display: block; width: 100%; height: auto; }
+.proof-screenshot-caption {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  margin-top: 14px;
+}
 .proof-author-block {
   text-align: center;
   border-top: 1px solid var(--gray);
   padding-top: 28px;
+  margin-top: 40px;
   max-width: 520px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .proof-author-block p {
   font-family: var(--font-body);
@@ -631,13 +733,46 @@ body {
   width: 100%; height: 100%;
   border: none;
 }
-.video-note {
-  margin-top: 20px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: #888;
-  font-style: italic;
+
+/* ── FAQ ── */
+.faq-section {
+  background: var(--white);
+  padding: 72px 24px;
+  border-top: 1px solid var(--gray);
 }
+.faq-inner { max-width: 720px; margin: 0 auto; }
+.faq-headline {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 36px;
+  letter-spacing: -0.3px;
+}
+.faq-headline em { color: var(--red); font-style: normal; }
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { padding: 22px 0; border-bottom: 1px solid var(--gray); }
+.faq-item:first-child { padding-top: 0; }
+.faq-q {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+  display: flex;
+  gap: 12px;
+}
+.faq-q::before { content: 'Q.'; color: var(--red); font-weight: 900; flex-shrink: 0; }
+.faq-a {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding-left: 28px;
+}
+.faq-a strong { color: var(--black); font-weight: 600; }
 
 /* ── FINAL CTA ── */
 .final-section {
@@ -799,6 +934,10 @@ footer a:hover { color: var(--red); }
   .hero { padding: 52px 20px 44px; }
   .hero-qualifier { font-size: 10px; letter-spacing: 1.5px; padding: 6px 14px; }
   .hero h1 { font-size: clamp(28px, 7vw, 48px); }
+  .who-section { padding: 52px 20px; }
+  .who-inner { flex-direction: column; gap: 28px; text-align: center; }
+  .who-photo { flex: 0 0 auto; width: 200px; }
+  .who-stats { justify-content: center; }
   .story-section { padding: 52px 20px; }
   .pain-section { padding: 52px 20px; }
   .pain-cta-btn { width: 100%; max-width: 340px; font-size: 15px; padding: 16px 24px; }
@@ -806,13 +945,15 @@ footer a:hover { color: var(--red); }
   .beliefs-grid { grid-template-columns: 1fr; gap: 3px; }
   .belief-card { padding: 24px 20px; }
   .video-section { padding: 52px 20px; }
+  .faq-section { padding: 52px 20px; }
+  .faq-q { font-size: 16px; }
   .proof-section { padding: 56px 20px; }
   .proof-grid { grid-template-columns: 1fr; }
   .final-section { padding: 60px 20px 48px; }
   .final-btn { padding: 18px 32px; font-size: 16px; width: 100%; max-width: 340px; }
   .guarantee-block { flex-direction: column; gap: 12px; text-align: center; padding: 20px; max-width: 100%; }
   .ps-section { padding: 40px 20px; }
-  .calc-section { padding: 56px 20px 32px; }
+  .guide-section { padding: 56px 20px 32px; }
 }
 @media (max-width: 480px) {
   .top-bar { font-size: 9.5px; letter-spacing: 0.5px; }
@@ -820,6 +961,7 @@ footer a:hover { color: var(--red); }
   .hero h1 { font-size: clamp(26px, 8vw, 40px); line-height: 1.08; }
   .hero-mechanism { font-size: 14px; margin-bottom: 12px; }
   .hero-sub { font-size: 14px; }
+  .hero-stats { gap: 24px; margin-top: 24px; }
   .story-headline { font-size: clamp(22px, 6vw, 32px); }
   .pain-text { font-size: 16px; }
   .pain-agitate { font-size: 15px; }
@@ -841,44 +983,18 @@ footer a:hover { color: var(--red); }
   .navbar { padding-top: max(14px, env(safe-area-inset-top)); }
 }
 
-/* ── QUIZ ── */
-.quiz-wrapper { max-width: 640px; margin: 0 auto; padding: 0 0 40px; }
-.quiz-progress-bar-wrap { background: var(--gray); height: 3px; margin-bottom: 10px; overflow: hidden; }
-.quiz-progress-bar-fill { height: 100%; background: var(--red); width: 33%; transition: width 0.4s ease; }
-.quiz-progress-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 32px; }
-.quiz-step { display: none; }
-.quiz-step.active { display: block; animation: qfade .3s ease; }
-@keyframes qfade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.quiz-question-text { font-family: var(--font-display); font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; text-transform: uppercase; color: var(--black); line-height: 1.1; margin-bottom: 28px; letter-spacing: -0.3px; }
-.quiz-options { display: flex; flex-direction: column; gap: 12px; }
-.quiz-option { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--off-white); border: 2px solid var(--gray); cursor: pointer; font-family: var(--font-body); font-size: 16px; font-weight: 500; color: var(--black); text-align: left; -webkit-appearance: none; touch-action: manipulation; transition: border-color .2s, background .2s; width: 100%; }
-.quiz-option:hover { border-color: var(--red); background: var(--red-light); }
-.quiz-option.selected { border-color: var(--red); background: var(--red-light); }
-.quiz-option-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s; }
-.quiz-option.selected .quiz-option-dot { border-color: var(--red); background: var(--red); }
-.quiz-option.selected .quiz-option-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; display: block; }
-.quiz-form-intro { font-family: var(--font-body); font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 28px; }
-.quiz-form-intro strong { color: var(--black); }
-.quiz-benefits { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-.quiz-benefit-item { display: flex; align-items: flex-start; gap: 12px; background: var(--off-white); border-left: 3px solid var(--red); padding: 12px 16px; }
-.quiz-benefit-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.quiz-benefit-text { font-family: var(--font-body); font-size: 14px; color: var(--black); line-height: 1.5; font-weight: 500; }
-.quiz-benefit-text span { color: var(--text-muted); font-weight: 400; }
+/* ── GUIDE FORM ── */
+.guide-form-wrapper { max-width: 640px; margin: 0 auto; padding: 0 0 40px; }
 .form-group { margin-bottom: 20px; }
 .form-label { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
 .form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray); background: var(--white); font-family: var(--font-body); font-size: 16px; color: var(--black); outline: none; transition: border-color .2s; -webkit-appearance: none; border-radius: 0; }
 .form-input:focus { border-color: var(--red); }
 .form-input::placeholder { color: #ccc; }
-.quiz-submit-btn { width: 100%; padding: 20px; background: var(--red); color: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border: none; cursor: pointer; transition: background .2s; margin-top: 8px; touch-action: manipulation; -webkit-appearance: none; }
-.quiz-submit-btn:hover { background: var(--red-dark); }
-.quiz-submit-btn:disabled { background: #999; cursor: not-allowed; }
-.quiz-back-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: none; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 0; margin-bottom: 24px; letter-spacing: 0.3px; touch-action: manipulation; transition: color .2s; }
-.quiz-back-btn:hover { color: var(--black); }
-.form-privacy { font-family: var(--font-body); font-size: 11px; color: #bbb; text-align: center; margin-top: 12px; line-height: 1.5; }
-@media (max-width: 480px) {
-  .quiz-option { padding: 14px 16px; font-size: 15px; gap: 12px; }
-  .quiz-question-text { font-size: clamp(20px, 6vw, 28px); }
-}
+.guide-submit-btn { width: 100%; padding: 20px; background: var(--red); color: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border: none; cursor: pointer; transition: background .2s; margin-top: 8px; touch-action: manipulation; -webkit-appearance: none; }
+.guide-submit-btn:hover { background: var(--red-dark); }
+.guide-submit-btn:disabled { background: #999; cursor: not-allowed; }
+.form-immediate { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--black); text-align: center; margin-top: 14px; line-height: 1.5; }
+.form-privacy { font-family: var(--font-body); font-size: 11px; color: #bbb; text-align: center; margin-top: 8px; line-height: 1.5; }
 
 /* ── COOKIE BANNER ── */
 .cookie-banner {
@@ -969,104 +1085,105 @@ fbq('track','PageView');
 <body>
 
 <!-- ══════════ TOP BAR ══════════ -->
-<div class="top-bar">Sales Coach dal 2021 · Valutazione personale gratuita — il quiz richiede 45 secondi</div>
+<div class="top-bar">Sales Coach dal 2021 · Video-guida gratuita: la professione che le aziende italiane pagano di più</div>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar">
   <div class="navbar-logo">LUCA <span>FRASSINE</span></div>
-  <a class="navbar-cta" href="#calcolatore" target="_self">Calcola il tuo potenziale →</a>
+  <a class="navbar-cta" href="#guida" target="_self">Scarica la video-guida gratis →</a>
 </nav>
 
-<!-- ══════════ HERO — compatto, porta subito al quiz ══════════ -->
+<!-- ══════════ HERO — compatto, porta subito alla video-guida ══════════ -->
 <section class="hero">
   <div class="hero-qualifier">Solo per chi è stanco di scambiare tempo per soldi</div>
   <div class="hero-eyebrow">Sales Coach — Vendita sul Campo dal 2021</div>
   <h1>La Professione che le Aziende Italiane Pagano <em>3.000–8.000€/Mese</em> — e che Quasi Nessuno Sa di Poter Fare</h1>
-  <p class="hero-mechanism">Non serve laurea. Non serve esperienza. Serve <strong>il Sistema delle 7 Domande</strong> — e la volontà di applicarlo.</p>
+  <p class="hero-mechanism">Non è un talento. È una competenza che si impara — un po' come un camionista impara a guidare un mezzo pesante per guadagnare bene. <strong>Ti spiego come funziona</strong> nella video-guida gratuita.</p>
   <p class="hero-sub">
-    Rispondi a <strong>2 domande</strong> e scopri il tuo potenziale reale — e il percorso esatto per arrivarci.
+    Scarica gratis la video-guida e scopri <strong>cosa puoi guadagnare</strong>, cosa serve per iniziare e perché vale la pena impararla.
   </p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">300+</span><span class="hero-stat-label">Persone formate</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">3M€+</span><span class="hero-stat-label">Generati in vendite</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">2021</span><span class="hero-stat-label">Sales Coach dal</span></div>
+  </div>
   <div class="hero-arrow">↓</div>
 </section>
 
-<!-- ══════════ QUIZ — subito dopo l'hero ══════════ -->
-<section class="calc-section" id="calcolatore">
-  <div class="calc-eyebrow">Il tuo potenziale personalizzato</div>
-  <h2 class="calc-headline">Quanto potresti guadagnare<br><em>già dal primo mese?</em></h2>
-  <p class="calc-sub">2 domande. Ti diciamo quanto puoi guadagnare e con quale percorso — basato sulla tua situazione reale, non su medie generiche.</p>
+<!-- ══════════ FORM VIDEO-GUIDA — subito dopo l'hero ══════════ -->
+<section class="guide-section">
+  <div class="guide-eyebrow">Video-guida gratuita</div>
+  <h2 class="guide-headline">Cosa trovi nella<br><em>video-guida gratuita</em></h2>
+  <p class="guide-sub">Pochi minuti per capire davvero questa professione — prima di decidere se fa per te.</p>
 
-  <div class="quiz-wrapper" id="quiz-wrapper">
+  <div class="guide-form-wrapper">
 
-    <div class="quiz-progress-bar-wrap">
-      <div class="quiz-progress-bar-fill" id="quiz-progress-bar"></div>
-    </div>
-    <div class="quiz-progress-label" id="quiz-progress-label">Domanda 1 di 2</div>
-
-    <!-- Step 1 -->
-    <div class="quiz-step active" id="step-1">
-      <div class="quiz-question-text">Qual è la tua situazione attuale?</div>
-      <div class="quiz-options">
-        <button class="quiz-option" onclick="selectOption(1,'dipendente-cambiare',this)">
-          <div class="quiz-option-dot"></div>Lavoro dipendente e voglio cambiare
-        </button>
-        <button class="quiz-option" onclick="selectOption(1,'seconda-entrata',this)">
-          <div class="quiz-option-dot"></div>Cerco una seconda entrata senza lasciare il lavoro
-        </button>
-        <button class="quiz-option" onclick="selectOption(1,'da-zero',this)">
-          <div class="quiz-option-dot"></div>Non lavoro e voglio iniziare da zero
-        </button>
+    <div class="pain-list" style="margin-top:0; margin-bottom: 32px;">
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
+        <div class="pain-item-text">Cos'è davvero il Commerciale da Remoto <span>— e perché non è "un lavoro online" come tanti altri</span></div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
+        <div class="pain-item-text">Perché è una competenza che si impara, non un talento <span>— un po' come si prende la patente per guidare un mezzo pesante</span></div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
+        <div class="pain-item-text">Quanto puoi guadagnare davvero <span>— dai primi mesi al pieno regime, con numeri reali</span></div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
+        <div class="pain-item-text">Perché le aziende italiane la cercano disperatamente <span>e faticano a trovare chi la sa fare</span></div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
+        <div class="pain-item-text">Cosa serve per iniziare — e cosa NON serve <span>(età, laurea, esperienza pregressa, soldi da parte)</span></div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
+        <div class="pain-item-text">Perché conviene impararla anche partendo da zero <span>— e come funziona davvero il percorso, passo dopo passo</span></div>
       </div>
     </div>
 
-    <!-- Step 2 -->
-    <div class="quiz-step" id="step-2">
-      <button class="quiz-back-btn" onclick="goToStep('1',1)">← Domanda precedente</button>
-      <div class="quiz-question-text">Quante ore a settimana puoi dedicare?</div>
-      <div class="quiz-options">
-        <button class="quiz-option" onclick="selectOption(2,'meno-10',this)">
-          <div class="quiz-option-dot"></div>Meno di 10 ore
-        </button>
-        <button class="quiz-option" onclick="selectOption(2,'10-20',this)">
-          <div class="quiz-option-dot"></div>10–20 ore
-        </button>
-        <button class="quiz-option" onclick="selectOption(2,'piu-20',this)">
-          <div class="quiz-option-dot"></div>Più di 20 ore
-        </button>
+    <form onsubmit="submitLeadForm(event)" novalidate id="guida">
+      <div class="form-group">
+        <label class="form-label" for="lead-name">Nome e cognome *</label>
+        <input class="form-input" type="text" id="lead-name" placeholder="Mario Rossi" required autocomplete="name">
       </div>
-    </div>
-
-    <!-- Form contatto -->
-    <div class="quiz-step" id="step-form">
-      <button class="quiz-back-btn" onclick="goToStep('2',2)">← Domanda precedente</button>
-      <div class="quiz-question-text" style="font-size:clamp(20px,4vw,28px);margin-bottom:16px;">Inserisci i tuoi dati —<br>ti mando il risultato gratis</div>
-      <div class="quiz-benefits">
-        <div class="quiz-benefit-item">
-          <div class="quiz-benefit-icon">💬</div>
-          <div class="quiz-benefit-text">Luca analizza le tue risposte e ti contatta personalmente <span>— quanto puoi guadagnare nei primi 6 mesi —</span> <strong>su WhatsApp o in chiamata</strong></div>
-        </div>
-        <div class="quiz-benefit-item">
-          <div class="quiz-benefit-icon">📧</div>
-          <div class="quiz-benefit-text">Ricevi via email <strong>la mappa dei settori</strong> <span>con i range di guadagno reali e come contattare le aziende oggi stesso</span></div>
-        </div>
+      <div class="form-group">
+        <label class="form-label" for="lead-email">Email *</label>
+        <input class="form-input" type="email" id="lead-email" placeholder="mario@email.it" required autocomplete="email">
       </div>
-      <form onsubmit="submitQuizForm(event)" novalidate>
-        <div class="form-group">
-          <label class="form-label" for="quiz-name">Nome e cognome *</label>
-          <input class="form-input" type="text" id="quiz-name" placeholder="Mario Rossi" required autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="quiz-email">Email *</label>
-          <input class="form-input" type="email" id="quiz-email" placeholder="mario@email.it" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="quiz-phone">Telefono *</label>
-          <input class="form-input" type="tel" id="quiz-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
-        </div>
-        <button type="submit" class="quiz-submit-btn" id="quiz-submit-btn">Calcola il mio potenziale →</button>
-        <p class="form-privacy">Nessuno spam. I tuoi dati sono al sicuro e vengono usati solo per contattarti.</p>
-      </form>
-    </div>
+      <div class="form-group">
+        <label class="form-label" for="lead-phone">Telefono *</label>
+        <input class="form-input" type="tel" id="lead-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
+      </div>
+      <button type="submit" class="guide-submit-btn" id="lead-submit-btn">Scarica la video-guida gratis →</button>
+      <p class="form-immediate">✅ Accesso immediato — appena invii il form vedi subito la video-guida.</p>
+      <p class="form-privacy">Nessuno spam. I tuoi dati sono al sicuro e vengono usati solo per inviarti la guida e ricontattarti.</p>
+    </form>
 
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIANZA — prova sociale prima del form ══════════ -->
+<section class="video-section" id="testimonianza">
+  <div class="video-inner">
+    <div class="video-label">Non è la mia parola</div>
+    <h2 class="video-headline">Ascolta chi ha già<br><em>fatto questo percorso</em></h2>
+    <p class="video-sub">Prima di scaricare la guida, ascolta chi era esattamente al tuo posto.</p>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/MEFPuR38Dkc?rel=0&modestbranding=1"
+        title="Testimonianza — Luca Frassine"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+      <button class="pain-cta-btn" onclick="scrollToGuide()">Scarica la video-guida gratis →</button>
+      <div class="pain-cta-note">Pochi minuti · Gratis · Nessuna carta di credito</div>
+    </div>
   </div>
 </section>
 
@@ -1095,9 +1212,32 @@ fbq('track','PageView');
         <p>9 mesi fa non aveva mai venduto niente. Oggi <strong>50–100k al mese in contratti reali</strong> — non da corsi. Da vendite vere, sul campo.</p>
       </div>
     </div>
+    <div class="proof-screenshot">
+      <img src="img/risultati-bonifici.png" alt="Screenshot di bonifici reali ricevuti da commissioni di vendita" loading="lazy">
+    </div>
+    <p class="proof-screenshot-caption">Bonifici reali, in periodi diversi. Non promesse — numeri.</p>
     <div class="proof-author-block">
       <p>"Vendo ancora ogni giorno. Non solo formo — vendo. Perché chi non vende più non può insegnarti a farlo."</p>
       <div class="author-name">— Luca Frassine · Sales Coach</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CHI È LUCA FRASSINE ══════════ -->
+<section class="who-section">
+  <div class="who-inner">
+    <div class="who-photo">
+      <img src="img/luca-frassine.jpg" alt="Luca Frassine" loading="lazy">
+    </div>
+    <div class="who-content">
+      <div class="section-label">Chi è Luca Frassine</div>
+      <h2 class="who-headline">Non un guru. <em>Uno che vende ancora, ogni giorno.</em></h2>
+      <p class="who-text">Sales Coach dal 2021. Ha iniziato con i traslochi e la fabbrica, poi ha scoperto la vendita da remoto — e da allora non ha mai smesso di vendere sul campo, ogni giorno, prima ancora che di insegnare. Il Sistema delle 7 Domande nasce dalle sue trattative reali, non da un libro.</p>
+      <div class="who-stats">
+        <div class="who-stat"><div class="who-stat-num">300+</div><div class="who-stat-label">Persone formate</div></div>
+        <div class="who-stat"><div class="who-stat-num">3M€+</div><div class="who-stat-label">Generati in vendite</div></div>
+        <div class="who-stat"><div class="who-stat-num">2021</div><div class="who-stat-label">Sales Coach dal</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1134,8 +1274,8 @@ fbq('track','PageView');
     </div>
     <div class="story-signature">Luca Frassine — Sales Coach · Vende ancora attivamente ogni giorno sul campo</div>
     <div style="text-align:center; margin-top: 40px;">
-      <button class="pain-cta-btn" onclick="scrollToCalc()">Scopri il tuo potenziale adesso →</button>
-      <div class="pain-cta-note">45 secondi · Gratis · Nessuna carta di credito</div>
+      <button class="pain-cta-btn" onclick="scrollToGuide()">Scarica la video-guida gratis →</button>
+      <div class="pain-cta-note">Pochi minuti · Gratis · Nessuna carta di credito</div>
     </div>
   </div>
 </section>
@@ -1181,8 +1321,8 @@ fbq('track','PageView');
       Il problema non è la tua capacità. Il problema è che <strong>nessuno ti ha mai mostrato la via d'uscita concreta</strong> — quella che funziona davvero, senza investimenti iniziali, senza miracoli.
     </p>
     <div style="text-align:center; margin-top: 40px;">
-      <button class="pain-cta-btn" onclick="scrollToCalc()">Calcola quanto potresti guadagnare →</button>
-      <div class="pain-cta-note">45 secondi · Gratis · Nessuna carta di credito</div>
+      <button class="pain-cta-btn" onclick="scrollToGuide()">Scarica la video-guida gratis →</button>
+      <div class="pain-cta-note">Pochi minuti · Gratis · Nessuna carta di credito</div>
     </div>
   </div>
 </section>
@@ -1219,21 +1359,33 @@ fbq('track','PageView');
   </div>
 </section>
 
-<!-- ══════════ VIDEO SECTION ══════════ -->
-<section class="video-section" id="video">
-  <div class="video-inner">
-    <div class="video-label">La via d'uscita concreta</div>
-    <h2 class="video-headline">Prima di tornare su —<br><em>guarda questo.</em></h2>
-    <p class="video-sub">3 minuti che cambiano il modo in cui guardi al tuo tempo — e a quanto vale davvero.</p>
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/_98XhvcyAuY?rel=0&modestbranding=1"
-        title="Luca Frassine — La professione che le aziende italiane cercano"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-label">Prima di scaricare la guida</div>
+    <h2 class="faq-headline">Le domande che ti stai<br><em>facendo adesso</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Devo essere portato per la vendita, o devo già saperci fare?</div>
+        <div class="faq-a">No. La vendita di cui parlo non è quella fastidiosa e insistente a cui forse pensi — niente chiamate a freddo, niente convincere chi non vuole ascoltarti. Parli solo con chi si è già fatto avanti, che ha bisogno di quello che l'azienda offre e aspetta una chiamata seria. Il tuo lavoro è capire cosa serve davvero e guidarlo verso la scelta giusta — con <strong>il Sistema delle 7 Domande</strong>, non con la persuasione. Funziona anche se sei introverso.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quanto tempo devo dedicarci ogni giorno?</div>
+        <div class="faq-a"><strong>3–4 ore al giorno bastano per iniziare</strong>, ed è compatibile con un lavoro a tempo pieno — molti partono così, prima o dopo il turno. Nella video-guida ti spiego come si organizzano in pratica.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Serve investire dei soldi?</div>
+        <div class="faq-a">Bisogna distinguere due cose. Per fare il Commerciale da Remoto <strong>non serve capitale e non corri rischi economici</strong>: il rischio lo prende l'azienda con cui lavori, tu vieni pagato a commissione su quello che chiudi — è uno dei motivi per cui regge meglio di alternative come trading o dropshipping. Se poi deciderai di approfondire il percorso con me, quello è un investimento vero — ma se ne parla dopo, non ora. La video-guida serve solo a farti capire se questa professione fa per te.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Cos'è esattamente il Commerciale da Remoto?</div>
+        <div class="faq-a">Una professione vera, non "un lavoro online" generico. Aziende italiane che hanno bisogno di vendere i loro servizi pagano chi sa gestire una trattativa da remoto — spesso a commissione, senza dover investire in prodotto o magazzino. Nella video-guida te la spiego nel dettaglio, con numeri ed esempi reali.</div>
+      </div>
     </div>
-    <p class="video-note">↑ Dopo il video, torna su e calcola il tuo potenziale in 45 secondi</p>
+    <div style="text-align:center; margin-top: 40px;">
+      <button class="pain-cta-btn" onclick="scrollToGuide()">Scarica la video-guida gratis →</button>
+      <div class="pain-cta-note">Pochi minuti · Gratis · Nessuna carta di credito</div>
+    </div>
   </div>
 </section>
 
@@ -1242,24 +1394,24 @@ fbq('track','PageView');
   <div class="final-eyebrow">La biforcazione</div>
   <h2>Questa è la scelta:<br><em>continui esattamente come adesso</em> — o scopri cosa cambia.</h2>
   <p class="final-body">
-    Tra 6 mesi sarai da qualche parte. La domanda è dove. Se non cambia niente di strutturale, la risposta la conosci già. <strong>Il quiz non ti costa niente. L'alternativa, sì.</strong>
+    Tra 6 mesi sarai da qualche parte. La domanda è dove. Se non cambia niente di strutturale, la risposta la conosci già. <strong>La video-guida non ti costa niente. L'alternativa, sì.</strong>
   </p>
   <div class="guarantee-block">
     <div class="guarantee-icon">🛡</div>
     <div class="guarantee-text">
-      <strong>Zero rischio.</strong> Il quiz è completamente gratuito. Nessuna carta di credito. Nessun impegno. Se non è per te, lo scopri in 45 secondi — senza perdere niente tranne 45 secondi.
+      <strong>Zero rischio.</strong> La video-guida è completamente gratuita. Nessuna carta di credito. Nessun impegno. Se non è per te, lo scopri guardandola — senza perdere niente.
     </div>
   </div>
   <br>
-  <button class="final-btn" onclick="scrollToCalc()">Calcola il tuo potenziale adesso →</button>
-  <p class="final-note">45 secondi · Gratis · Nessuna carta di credito</p>
+  <button class="final-btn" onclick="scrollToGuide()">Scarica la video-guida gratis adesso →</button>
+  <p class="final-note">Pochi minuti · Gratis · Nessuna carta di credito</p>
 </section>
 
 <!-- ══════════ P.S. ══════════ -->
 <section class="ps-section">
   <div class="ps-inner">
-    <p><strong>P.S.</strong> — Se stai ancora leggendo senza aver compilato il quiz, lasciami dirti una cosa sola. Quella rabbia che senti — quella che ti tiene sveglio — è esattamente dove ero io quella notte, nel buio, con la fabbrica in testa. Il quiz non risolve niente da solo. Ma ti dice dove sei adesso e dove potresti essere. È il primo passo. Quello che ho fatto anch'io.</p>
-    <p><strong>P.P.S.</strong> — Luca gestisce le valutazioni personalmente. Non deleghiamo a nessuno. Questo significa che il numero di posti disponibili ogni settimana è limitato. <em>Compila adesso — non rimandare a domani.</em></p>
+    <p><strong>P.S.</strong> — Se stai ancora leggendo senza aver scaricato la video-guida, lasciami dirti una cosa sola. Quella rabbia che senti — quella che ti tiene sveglio — è esattamente dove ero io quella notte, nel buio, con la fabbrica in testa. La video-guida non risolve niente da sola. Ma ti spiega esattamente come funziona questa professione e cosa puoi costruirci. È il primo passo. Quello che ho fatto anch'io.</p>
+    <p><strong>P.P.S.</strong> — Dopo la video-guida potrai anche prenotare una chiamata gratuita con Luca per parlare della tua situazione specifica. Luca la gestisce personalmente, quindi i posti ogni settimana sono limitati. <em>Scarica la guida adesso — non rimandare a domani.</em></p>
   </div>
 </section>
 
@@ -1285,55 +1437,24 @@ fbq('track','PageView');
 </footer>
 
 <script>
-function scrollToCalc() {
-  document.getElementById('calcolatore').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function scrollToGuide() {
+  document.getElementById('guida').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 document.querySelector('.navbar-cta').addEventListener('click', function(e) {
   e.preventDefault();
-  var target = document.getElementById('calcolatore');
+  var target = document.getElementById('guida');
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-/* ── QUIZ LOGIC (2 domande) ── */
-var quizAnswers = {};
-
-function selectOption(step, value, el) {
-  el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(function(o) {
-    o.classList.remove('selected');
-  });
-  el.classList.add('selected');
-  quizAnswers['q' + step] = value;
-  setTimeout(function() {
-    if (step === 2) {
-      goToStep('form', 3);
-    } else {
-      goToStep(String(step + 1), step + 1);
-    }
-  }, 380);
-}
-
-function goToStep(id, progressStep) {
-  document.querySelectorAll('.quiz-step').forEach(function(s) { s.classList.remove('active'); });
-  document.getElementById('step-' + id).classList.add('active');
-  var labels = {
-    1: 'Domanda 1 di 2',
-    2: 'Domanda 2 di 2',
-    3: 'Quasi fatto — inserisci i tuoi dati'
-  };
-  document.getElementById('quiz-progress-label').textContent = labels[progressStep] || '';
-  document.getElementById('quiz-progress-bar').style.width = ((progressStep / 3) * 100) + '%';
-  document.getElementById('calcolatore').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function submitQuizForm(e) {
+function submitLeadForm(e) {
   e.preventDefault();
-  var name  = document.getElementById('quiz-name').value.trim();
-  var email = document.getElementById('quiz-email').value.trim();
-  var phone = document.getElementById('quiz-phone').value.trim();
+  var name  = document.getElementById('lead-name').value.trim();
+  var email = document.getElementById('lead-email').value.trim();
+  var phone = document.getElementById('lead-phone').value.trim();
   if (!name || !email || !phone) return;
 
-  var btn = document.getElementById('quiz-submit-btn');
+  var btn = document.getElementById('lead-submit-btn');
   btn.textContent = 'Invio in corso...';
   btn.disabled = true;
 
@@ -1342,9 +1463,7 @@ function submitQuizForm(e) {
     firstName: nameParts[0],
     lastName:  nameParts.slice(1).join(' '),
     email:     email,
-    phone:     phone,
-    q1:        quizAnswers.q1 || '',
-    q2:        quizAnswers.q2 || ''
+    phone:     phone
   };
 
   function showThankyou() {
