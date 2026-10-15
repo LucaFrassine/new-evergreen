@@ -1507,13 +1507,8 @@ function submitLeadForm(e) {
   btn.textContent = 'Invio in corso...';
   btn.disabled = true;
 
-  // Stesso codice evento per il pixel (dal browser) e per l'API di conversione (dal workflow GHL):
-  // così Meta riconosce che è lo stesso lead e non lo conta due volte.
-  var eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
-
   var nameParts = name.split(' ');
   var payload = {
-    eventId:   eventId,
     firstName: nameParts[0],
     lastName:  nameParts.slice(1).join(' '),
     email:     email,
@@ -1539,7 +1534,8 @@ function submitLeadForm(e) {
     window.location.href = 'thankyou.html';
   }
 
-  if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Opt-in Evergreen'}, {eventID: eventId});
+  // L'evento "Lead" a Meta lo manda il workflow di GoHighLevel (API di conversione, con email, telefono e fbclid).
+  // Qui non lo ripetiamo: il workflow non può passare un codice evento comune e Meta conterebbe ogni lead due volte.
 
   fetch('https://services.leadconnectorhq.com/hooks/EKDcSusSbbWCUYQ2J1G0/webhook-trigger/e143354b-ca09-4520-bca9-7a04ec3e3be0', {
     method: 'POST',
