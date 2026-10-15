@@ -990,6 +990,7 @@ footer a:hover { color: var(--red); }
 .form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray); background: var(--white); font-family: var(--font-body); font-size: 16px; color: var(--black); outline: none; transition: border-color .2s; -webkit-appearance: none; border-radius: 0; }
 .form-input:focus { border-color: var(--red); }
 .form-input::placeholder { color: #ccc; }
+.form-errore { display: none; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--red); margin-top: 6px; line-height: 1.4; }
 .guide-submit-btn { width: 100%; padding: 20px; background: var(--red); color: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border: none; cursor: pointer; transition: background .2s; margin-top: 8px; touch-action: manipulation; -webkit-appearance: none; }
 .guide-submit-btn:hover { background: var(--red-dark); }
 .guide-submit-btn:disabled { background: #999; cursor: not-allowed; }
@@ -1149,14 +1150,17 @@ fbq('track','PageView');
       <div class="form-group">
         <label class="form-label" for="lead-name">Nome e cognome *</label>
         <input class="form-input" type="text" id="lead-name" placeholder="Mario Rossi" required autocomplete="name">
+        <div class="form-errore" id="lead-name-errore" role="alert"></div>
       </div>
       <div class="form-group">
         <label class="form-label" for="lead-email">Email *</label>
         <input class="form-input" type="email" id="lead-email" placeholder="mario@email.it" required autocomplete="email">
+        <div class="form-errore" id="lead-email-errore" role="alert"></div>
       </div>
       <div class="form-group">
         <label class="form-label" for="lead-phone">Telefono *</label>
         <input class="form-input" type="tel" id="lead-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
+        <div class="form-errore" id="lead-phone-errore" role="alert"></div>
       </div>
       <button type="submit" class="guide-submit-btn" id="lead-submit-btn">Scarica la video-guida gratis →</button>
       <p class="form-immediate">✅ Accesso immediato — appena invii il form vedi subito la video-guida.</p>
@@ -1447,12 +1451,57 @@ document.querySelector('.navbar-cta').addEventListener('click', function(e) {
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+// Da dove arriva la persona (inserzione e UTM): salvato al primo arrivo, così resta anche se cambia pagina.
+var ATTRIBUZIONE = (function() {
+  var chiavi = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+  var salvata = null;
+  try { salvata = JSON.parse(sessionStorage.getItem('eg_attribuzione') || 'null'); } catch (err) {}
+  var params = new URLSearchParams(window.location.search);
+  if (!salvata || chiavi.some(function(k) { return params.get(k); })) {
+    salvata = { landingUrl: window.location.href, referrer: document.referrer || '' };
+    chiavi.forEach(function(k) { salvata[k] = params.get(k) || ''; });
+    try { sessionStorage.setItem('eg_attribuzione', JSON.stringify(salvata)); } catch (err) {}
+  }
+  return salvata;
+})();
+
+function leggiCookie(nome) {
+  var m = document.cookie.match(new RegExp('(?:^|; )' + nome + '=([^;]*)'));
+  return m ? decodeURIComponent(m[1]) : '';
+}
+
+// Cellulare valido: italiano (3xx, 9-10 cifre, con o senza +39) o internazionale con prefisso (+NN, 8-15 cifre).
+// Restituisce il numero in formato +39…, oppure null se non è valido.
+function normalizzaTelefono(t) {
+  var n = t.replace(/[\s.\-()\/]/g, '');
+  if (/^00/.test(n)) n = '+' + n.slice(2);
+  if (/^\+39/.test(n)) n = n.slice(3);
+  if (/^3\d{8,9}$/.test(n)) n = '+39' + n;
+  else if (!/^\+(?!39)[1-9]\d{7,14}$/.test(n)) return null;
+  var cifre = n.slice(-9);
+  if (/^(\d)\1+$/.test(cifre) || '0123456789'.indexOf(cifre.slice(0, 7)) >= 0 || '9876543210'.indexOf(cifre.slice(0, 7)) >= 0) return null;
+  return n;
+}
+
+function erroreCampo(id, testo) {
+  var input = document.getElementById(id);
+  var box = document.getElementById(id + '-errore');
+  input.style.borderColor = testo ? 'var(--red)' : '';
+  if (box) { box.textContent = testo || ''; box.style.display = testo ? 'block' : 'none'; }
+  if (testo) input.focus();
+}
+
 function submitLeadForm(e) {
   e.preventDefault();
-  var name  = document.getElementById('lead-name').value.trim();
+  var name  = document.getElementById('lead-name').value.trim().replace(/\s+/g, ' ');
   var email = document.getElementById('lead-email').value.trim();
-  var phone = document.getElementById('lead-phone').value.trim();
-  if (!name || !email || !phone) return;
+  var phoneScritto = document.getElementById('lead-phone').value.trim();
+
+  erroreCampo('lead-name', ''); erroreCampo('lead-email', ''); erroreCampo('lead-phone', '');
+  if (name.length < 2) return erroreCampo('lead-name', 'Scrivi il tuo nome e cognome.');
+  if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) return erroreCampo('lead-email', 'Controlla l’email: sembra incompleta.');
+  var phone = normalizzaTelefono(phoneScritto);
+  if (!phone) return erroreCampo('lead-phone', 'Scrivi un numero di cellulare valido (es. 333 123 4567): ti serve per ricevere la chiamata.');
 
   var btn = document.getElementById('lead-submit-btn');
   btn.textContent = 'Invio in corso...';
@@ -1463,11 +1512,26 @@ function submitLeadForm(e) {
     firstName: nameParts[0],
     lastName:  nameParts.slice(1).join(' '),
     email:     email,
-    phone:     phone
+    phone:     phone,
+    funnel:    'evergreen',
+    tags:      'evergreen',
+    landingUrl:   ATTRIBUZIONE.landingUrl,
+    referrer:     ATTRIBUZIONE.referrer,
+    utm_source:   ATTRIBUZIONE.utm_source,
+    utm_medium:   ATTRIBUZIONE.utm_medium,
+    utm_campaign: ATTRIBUZIONE.utm_campaign,
+    utm_content:  ATTRIBUZIONE.utm_content,
+    utm_term:     ATTRIBUZIONE.utm_term,
+    fbclid:       ATTRIBUZIONE.fbclid,
+    fbp:          leggiCookie('_fbp'),
+    fbc:          leggiCookie('_fbc')
   };
 
+  // Nome ed email passano alla thank you page senza finire nell'indirizzo (il pixel di Meta legge l'indirizzo).
+  try { sessionStorage.setItem('eg_lead', JSON.stringify({ name: name, email: email, phone: phone })); } catch (err) {}
+
   function showThankyou() {
-    window.location.href = 'thankyou.html?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
+    window.location.href = 'thankyou.html';
   }
 
   if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Opt-in Evergreen'});

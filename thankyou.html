@@ -85,6 +85,8 @@ body {
 .survey-section-headline em { color: var(--red); font-style: normal; }
 .survey-intro { text-align: center; font-family: var(--font-body); font-size: clamp(15px, 1.8vw, 17px); color: var(--text-muted); margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 .survey-intro strong { color: var(--black); }
+.survey-skip { text-align: center; font-family: var(--font-body); font-size: 14px; color: var(--text-muted); margin: -24px auto 32px; }
+.survey-skip a { color: var(--red); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── SURVEY WIDGET ── */
 .survey-wrapper { max-width: 640px; margin: 0 auto; }
@@ -238,6 +240,8 @@ fbq('track','PageView');
   <h2 class="survey-section-headline">Aiutami a prepararmi<br><em>per la tua chiamata</em></h2>
   <p class="survey-intro"><strong>5 domande veloci</strong> che permettono a Luca di analizzare la tua situazione prima di vedervi — così il vostro appuntamento su Google Meet va dritto al punto, senza perdere tempo.</p>
 
+  <p class="survey-skip" id="salta-questionario">Hai poco tempo? <a href="#booking-section" onclick="event.preventDefault(); mostraCalendario(false);">Prenota direttamente la chiamata →</a></p>
+
   <div class="survey-wrapper" id="survey-wrapper">
     <div class="survey-progress-wrap">
       <div class="survey-progress-fill" id="survey-progress-bar"></div>
@@ -314,7 +318,26 @@ fbq('track','PageView');
       <h2 class="booking-headline">Prenota la tua<br><em>chiamata gratuita</em></h2>
       <p class="booking-sub">Scegli il giorno e l'orario. Ricevi l'invito sul calendario e <strong>vi vedete su Google Meet</strong> — Luca si presenta preparato sulla tua situazione.</p>
     </div>
-    <iframe src="https://go.automatoai.it/widget/booking/jKxXkAFXjEx4s6r3wTm2" style="border:none;width:100%;min-height:700px;" scrolling="no" id="booking-iframe" title="Prenota chiamata"></iframe>
+    <iframe style="border:none;width:100%;min-height:700px;" scrolling="no" id="booking-iframe" title="Prenota chiamata"></iframe>
+    <script>
+    // Calendario già compilato con i dati lasciati nella landing (nome, email, telefono), così la prenotazione
+    // si collega al suo contatto. I dati restano dentro il calendario, non nell'indirizzo della pagina.
+    (function() {
+      var src = 'https://go.automatoai.it/widget/booking/jKxXkAFXjEx4s6r3wTm2';
+      var lead = null;
+      try { lead = JSON.parse(sessionStorage.getItem('eg_lead') || 'null'); } catch (err) {}
+      if (lead) {
+        var parti = (lead.name || '').split(' ');
+        var q = new URLSearchParams();
+        if (parti[0]) q.set('first_name', parti[0]);
+        if (parti.length > 1) q.set('last_name', parti.slice(1).join(' '));
+        if (lead.email) q.set('email', lead.email);
+        if (lead.phone) q.set('phone', lead.phone);
+        src += '?' + q.toString();
+      }
+      document.getElementById('booking-iframe').src = src;
+    })();
+    </script>
   </div>
 </section>
 
@@ -331,12 +354,31 @@ fbq('track','PageView');
 var surveyAnswers = {};
 var leadEmail = '';
 var leadName  = '';
+var leadPhone = '';
 
+// Nome, email e telefono arrivano dalla landing in modo nascosto (non nell'indirizzo della pagina).
 (function() {
+  var lead = null;
+  try { lead = JSON.parse(sessionStorage.getItem('eg_lead') || 'null'); } catch (err) {}
   var params = new URLSearchParams(window.location.search);
-  leadEmail = params.get('email') || '';
-  leadName  = params.get('name')  || '';
+  leadEmail = (lead && lead.email) || params.get('email') || '';
+  leadName  = (lead && lead.name)  || params.get('name')  || '';
+  leadPhone = (lead && lead.phone) || '';
+  if (params.get('email') || params.get('name')) history.replaceState(null, '', window.location.pathname);
+
 })();
+
+// Mostra il calendario: dopo il questionario oppure subito, per chi preferisce prenotare senza rispondere.
+function mostraCalendario(dalQuestionario) {
+  var bookingSection = document.getElementById('booking-section');
+  bookingSection.style.display = 'block';
+  var salta = document.getElementById('salta-questionario');
+  if (salta) salta.style.display = 'none';
+  if (!dalQuestionario && typeof fbq !== 'undefined') fbq('trackCustom', 'PrenotaSenzaQuestionario');
+  setTimeout(function() {
+    bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 200);
+}
 
 function surveySelect(step, value, el) {
   el.closest('.survey-options').querySelectorAll('.survey-option').forEach(function(o) {
@@ -366,6 +408,8 @@ function surveyComplete() {
   var payload = {
     email: leadEmail,
     name:  leadName,
+    phone: leadPhone,
+    funnel: 'evergreen',
     s1: surveyAnswers.s1 || '',
     s2: surveyAnswers.s2 || '',
     s3: surveyAnswers.s3 || '',
@@ -384,12 +428,9 @@ function surveyComplete() {
   document.getElementById('survey-progress-label').textContent = '';
   document.querySelectorAll('.survey-step').forEach(function(s) { s.classList.remove('active'); });
 
-  var bookingSection = document.getElementById('booking-section');
-  bookingSection.style.display = 'block';
-  if (typeof fbq !== 'undefined') fbq('track', 'Schedule');
-  setTimeout(function() {
-    bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 200);
+  // "Schedule" parte solo a prenotazione confermata (pagina prenotato.html): qui segniamo solo il questionario.
+  if (typeof fbq !== 'undefined') fbq('trackCustom', 'QuestionarioCompletato');
+  mostraCalendario(true);
 }
 </script>
 

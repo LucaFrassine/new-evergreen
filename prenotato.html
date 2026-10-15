@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#C8102E">
+<meta name="robots" content="noindex">
+<title>Chiamata prenotata — Luca Frassine</title>
+<!-- Pagina dopo la prenotazione: il calendario di GoHighLevel reindirizza qui (Impostazioni calendario → conferma → URL di reindirizzamento).
+     Se si apre dentro il riquadro del calendario, porta tutta la pagina qui e l'evento "Schedule" parte una volta sola. -->
+<script>if (window.top !== window.self) { try { window.top.location.href = window.location.href; } catch (err) {} }</script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red: #C8102E;
+  --black: #0F172A;
+  --white: #FFFFFF;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+body { font-family: var(--font-body); background: var(--black); color: var(--white); line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+.navbar { padding: 16px 24px; display: flex; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.navbar-logo { font-family: var(--font-display); font-size: 20px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; }
+.navbar-logo span { color: var(--red); }
+main { flex: 1; text-align: center; padding: 72px 24px 64px; background: radial-gradient(ellipse at 50% 0%, rgba(200,16,46,0.14) 0%, transparent 70%); }
+.badge { font-size: 52px; margin-bottom: 16px; line-height: 1; }
+.eyebrow { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+h1 { font-family: var(--font-display); font-size: clamp(40px, 7vw, 72px); font-weight: 900; text-transform: uppercase; line-height: 1.0; margin-bottom: 24px; }
+h1 em { color: var(--red); font-style: normal; }
+.steps { max-width: 520px; margin: 0 auto; text-align: left; list-style: none; }
+.steps li { font-size: clamp(15px, 1.8vw, 18px); color: #cbd5e1; padding: 14px 0 14px 36px; border-top: 1px solid rgba(255,255,255,0.08); position: relative; }
+.steps li::before { content: '→'; position: absolute; left: 4px; color: var(--red); font-weight: 700; }
+.steps strong { color: var(--white); }
+footer { text-align: center; font-size: 12px; color: #64748b; padding: 24px; }
+footer a { color: #94a3b8; }
+</style>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+if (window.top === window.self) {
+  fbq('init','1453532389593829');
+  fbq('track','PageView');
+  fbq('track','Schedule');
+}
+</script>
+<!-- End Meta Pixel -->
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-logo">LUCA <span>FRASSINE</span></div>
+</nav>
+
+<main>
+  <div class="badge">📅</div>
+  <div class="eyebrow">Chiamata prenotata</div>
+  <h1>Ci vediamo<br><em>su Google Meet.</em></h1>
+  <ul class="steps">
+    <li><strong>Segna l'appuntamento</strong> — trovi l'invito con il link di Google Meet nel tuo calendario.</li>
+    <li><strong>Tieni d'occhio WhatsApp</strong> — ti scrivo prima della chiamata per ricordartela.</li>
+    <li><strong>Se hai un imprevisto</strong>, avvisami: spostiamo la chiamata senza problemi.</li>
+  </ul>
+</main>
+
+<footer>
+  © 2026 Luca Frassine &nbsp;·&nbsp;
+  <a href="https://docs.google.com/document/d/1YSi7Bkkm6seKDexQgJScU1cCEy6tEpZIyARKbVbBBV4/edit" rel="noopener">Privacy Policy</a>
+</footer>
+
+</body>
+</html>
