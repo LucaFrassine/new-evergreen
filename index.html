@@ -1113,6 +1113,21 @@ fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1453532389593829&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
+<style>
+/* Telefono: titolo e pulsante dentro la prima schermata, banner dei cookie più piccolo. */
+@media (max-width: 600px) {
+  .top-bar, .hero-eyebrow, .hero-sub { display: none; }
+  .hero { padding: 28px 18px 32px; }
+  .hero-qualifier { margin-bottom: 14px; }
+  .hero h1 { margin-bottom: 14px; }
+  .hero-mechanism { font-size: 14px; line-height: 1.55; margin-bottom: 0; }
+  .hero-cta { margin-top: 18px; }
+  .hero-stats { margin-top: 20px; }
+  .cookie-banner { padding: 10px 14px; gap: 8px; }
+  .cookie-text { font-size: 11px; line-height: 1.45; }
+  .cookie-accept, .cookie-reject { padding: 8px 12px; font-size: 12px; }
+}
+</style>
 </head>
 <body>
 
@@ -1135,14 +1150,14 @@ fbq('track','PageView');
   <p class="hero-sub">
     Scarica gratis la video-guida e scopri <strong>cos'è davvero</strong>, quanto si guadagna con i conti fatti bene e <strong>se fa per te</strong>.
   </p>
+  <div class="hero-cta">
+    <button type="button" class="guide-submit-btn" onclick="apriModulo()">Guarda la video-guida gratis →</button>
+    <p class="hero-cta-note">Gratis · Accesso immediato · Pochi minuti</p>
+  </div>
   <div class="hero-stats">
     <div class="hero-stat"><span class="hero-stat-num">200+</span><span class="hero-stat-label">Persone formate</span></div>
     <div class="hero-stat"><span class="hero-stat-num">4M€+</span><span class="hero-stat-label">Venduti personalmente</span></div>
     <div class="hero-stat"><span class="hero-stat-num">2021</span><span class="hero-stat-label">Sales Coach dal</span></div>
-  </div>
-  <div class="hero-cta">
-    <button type="button" class="guide-submit-btn" onclick="apriModulo()">Guarda la video-guida gratis →</button>
-    <p class="hero-cta-note">Gratis · Accesso immediato · Pochi minuti</p>
   </div>
 </section>
 
