@@ -741,6 +741,28 @@ body {
   border-top: 1px solid var(--gray);
 }
 .faq-inner { max-width: 720px; margin: 0 auto; }
+.path-section { background: var(--white); padding: 80px 24px; }
+.path-sub { font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: var(--text-muted); max-width: 680px; margin-top: 12px; }
+.path-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+.path-step { background: var(--off-white); padding: 28px 24px; border-top: 3px solid var(--red); }
+.path-num { font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 10px; }
+.path-step p { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-muted); }
+.path-step p strong { color: var(--black); }
+.path-step.path-top { background: var(--black); }
+.path-step.path-top .fit-title, .path-step.path-top p strong { color: var(--white); }
+.path-step.path-top p { color: #cbd5e1; }
+@media (max-width: 720px) { .path-grid { grid-template-columns: 1fr; } .path-section { padding: 56px 20px; } }
+.fit-section { background: var(--off-white); padding: 80px 24px; }
+.fit-inner { max-width: 960px; margin: 0 auto; }
+.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+.fit-card { background: var(--white); padding: 28px 26px; border-top: 3px solid var(--red); }
+.fit-card.fit-si { border-top-color: #16a34a; }
+.fit-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; margin-bottom: 14px; color: var(--black); }
+.fit-card ul { list-style: none; padding: 0; margin: 0; }
+.fit-card li { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--gray); }
+.fit-card li:last-child { border-bottom: none; }
+.fit-card li strong { color: var(--black); }
+@media (max-width: 720px) { .fit-grid { grid-template-columns: 1fr; } .fit-section { padding: 56px 20px; } }
 .faq-headline {
   font-family: var(--font-display);
   font-size: clamp(24px, 3vw, 36px);
@@ -984,6 +1006,15 @@ footer a:hover { color: var(--red); }
 }
 
 /* ── GUIDE FORM ── */
+.hero-cta { max-width: 460px; margin: 28px auto 0; }
+.hero-cta-note { font-family: var(--font-body); font-size: 13px; color: #94a3b8; margin-top: 10px; }
+.optin-modal { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15,23,42,.82); padding: 16px; overflow-y: auto; align-items: flex-start; justify-content: center; }
+.optin-modal.aperto { display: flex; }
+.optin-box { position: relative; background: var(--white); width: 100%; max-width: 520px; margin: 6vh auto; padding: 32px 26px 24px; border-top: 4px solid var(--red); }
+.optin-titolo { font-family: var(--font-display); font-size: clamp(26px, 4vw, 34px); font-weight: 900; text-transform: uppercase; line-height: 1.05; color: var(--black); margin: 6px 0 22px; }
+.optin-titolo em { color: var(--red); font-style: normal; }
+.optin-chiudi { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 32px; line-height: 1; color: #999; cursor: pointer; padding: 4px 8px; }
+@media (max-width: 720px) { .optin-box { margin: 2vh auto; padding: 28px 18px 20px; } }
 .guide-form-wrapper { max-width: 640px; margin: 0 auto; padding: 0 0 40px; }
 .form-group { margin-bottom: 20px; }
 .form-label { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
@@ -1085,8 +1116,9 @@ fbq('track','PageView');
 </head>
 <body>
 
+
 <!-- ══════════ TOP BAR ══════════ -->
-<div class="top-bar">Sales Coach dal 2021 · Video-guida gratuita: la professione che le aziende italiane pagano di più</div>
+<div class="top-bar">Sales Coach dal 2021 · Video-guida gratuita: come funziona davvero la professione del Commerciale da Remoto</div>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar">
@@ -1096,19 +1128,22 @@ fbq('track','PageView');
 
 <!-- ══════════ HERO — compatto, porta subito alla video-guida ══════════ -->
 <section class="hero">
-  <div class="hero-qualifier">Solo per chi è stanco di scambiare tempo per soldi</div>
+  <div class="hero-qualifier">Per chi ha deciso di cambiare lavoro — e vuole farlo sul serio</div>
   <div class="hero-eyebrow">Sales Coach — Vendita sul Campo dal 2021</div>
-  <h1>La Professione che le Aziende Italiane Pagano <em>3.000–8.000€/Mese</em> — e che Quasi Nessuno Sa di Poter Fare</h1>
-  <p class="hero-mechanism">Non è un talento. È una competenza che si impara — un po' come un camionista impara a guidare un mezzo pesante per guadagnare bene. <strong>Ti spiego come funziona</strong> nella video-guida gratuita.</p>
+  <h1>Il Commerciale da Remoto: la professione che le aziende italiane <em>cercano e non trovano</em></h1>
+  <p class="hero-mechanism">Non è trading, non è dropshipping, non è l'ennesimo corso miracoloso. È un mestiere vero, che si impara con un metodo — come si prende la patente per guidare un mezzo pesante. <strong>E quando sei pronto, ti inserisco io nelle aziende che mi chiedono venditori.</strong></p>
   <p class="hero-sub">
-    Scarica gratis la video-guida e scopri <strong>cosa puoi guadagnare</strong>, cosa serve per iniziare e perché vale la pena impararla.
+    Scarica gratis la video-guida e scopri <strong>cos'è davvero</strong>, quanto si guadagna con i conti fatti bene e <strong>se fa per te</strong>.
   </p>
   <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">300+</span><span class="hero-stat-label">Persone formate</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">3M€+</span><span class="hero-stat-label">Generati in vendite</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">200+</span><span class="hero-stat-label">Persone formate</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">4M€+</span><span class="hero-stat-label">Venduti personalmente</span></div>
     <div class="hero-stat"><span class="hero-stat-num">2021</span><span class="hero-stat-label">Sales Coach dal</span></div>
   </div>
-  <div class="hero-arrow">↓</div>
+  <div class="hero-cta">
+    <button type="button" class="guide-submit-btn" onclick="apriModulo()">Guarda la video-guida gratis →</button>
+    <p class="hero-cta-note">Gratis · Accesso immediato · Pochi minuti</p>
+  </div>
 </section>
 
 <!-- ══════════ FORM VIDEO-GUIDA — subito dopo l'hero ══════════ -->
@@ -1126,46 +1161,20 @@ fbq('track','PageView');
       </div>
       <div class="pain-item">
         <div class="pain-icon">→</div>
+        <div class="pain-item-text">Quanto si guadagna davvero <span>— con i conti fatti bene: valore delle vendite, provvigione media e un esempio concreto. Niente numeri gonfiati</span></div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">→</div>
         <div class="pain-item-text">Perché è una competenza che si impara, non un talento <span>— un po' come si prende la patente per guidare un mezzo pesante</span></div>
       </div>
       <div class="pain-item">
         <div class="pain-icon">→</div>
-        <div class="pain-item-text">Quanto puoi guadagnare davvero <span>— dai primi mesi al pieno regime, con numeri reali</span></div>
-      </div>
-      <div class="pain-item">
-        <div class="pain-icon">→</div>
-        <div class="pain-item-text">Perché le aziende italiane la cercano disperatamente <span>e faticano a trovare chi la sa fare</span></div>
-      </div>
-      <div class="pain-item">
-        <div class="pain-icon">→</div>
-        <div class="pain-item-text">Cosa serve per iniziare — e cosa NON serve <span>(età, laurea, esperienza pregressa, soldi da parte)</span></div>
-      </div>
-      <div class="pain-item">
-        <div class="pain-icon">→</div>
-        <div class="pain-item-text">Perché conviene impararla anche partendo da zero <span>— e come funziona davvero il percorso, passo dopo passo</span></div>
+        <div class="pain-item-text">Cosa succede dopo il percorso <span>— come ti inserisco io nelle aziende che mi chiedono venditori</span></div>
       </div>
     </div>
 
-    <form onsubmit="submitLeadForm(event)" novalidate id="guida">
-      <div class="form-group">
-        <label class="form-label" for="lead-name">Nome e cognome *</label>
-        <input class="form-input" type="text" id="lead-name" placeholder="Mario Rossi" required autocomplete="name">
-        <div class="form-errore" id="lead-name-errore" role="alert"></div>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="lead-email">Email *</label>
-        <input class="form-input" type="email" id="lead-email" placeholder="mario@email.it" required autocomplete="email">
-        <div class="form-errore" id="lead-email-errore" role="alert"></div>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="lead-phone">Telefono *</label>
-        <input class="form-input" type="tel" id="lead-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
-        <div class="form-errore" id="lead-phone-errore" role="alert"></div>
-      </div>
-      <button type="submit" class="guide-submit-btn" id="lead-submit-btn">Scarica la video-guida gratis →</button>
-      <p class="form-immediate">✅ Accesso immediato — appena invii il form vedi subito la video-guida.</p>
-      <p class="form-privacy">Nessuno spam. I tuoi dati sono al sicuro e vengono usati solo per inviarti la guida e ricontattarti.</p>
-    </form>
+    <button type="button" class="guide-submit-btn" onclick="apriModulo()">Scarica la video-guida gratis →</button>
+    <p class="form-immediate">✅ Gratis · Accesso immediato</p>
 
   </div>
 </section>
@@ -1177,7 +1186,7 @@ fbq('track','PageView');
     <h2 class="video-headline">Ascolta chi ha già<br><em>fatto questo percorso</em></h2>
     <p class="video-sub">Prima di scaricare la guida, ascolta chi era esattamente al tuo posto.</p>
     <div class="video-wrapper">
-      <iframe
+      <iframe loading="lazy"
         src="https://www.youtube.com/embed/MEFPuR38Dkc?rel=0&modestbranding=1"
         title="Testimonianza — Luca Frassine"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1194,35 +1203,61 @@ fbq('track','PageView');
 <!-- ══════════ PROOF — credibilità per chi non ha ancora compilato ══════════ -->
 <section class="proof-section">
   <div class="proof-inner">
-    <h2 class="proof-headline">I numeri reali —<br><em>non le promesse degli annunci</em></h2>
-    <p class="proof-sub">Risultati verificabili di persone che erano esattamente dove sei tu adesso.</p>
+    <h2 class="proof-headline">Risultati veri —<br><em>con le avvertenze che nessuno ti dà</em></h2>
+    <p class="proof-sub">Persone che erano dove sei tu adesso. Ci sono arrivate con impegno e pratica: non sono risultati garantiti, sono il risultato di chi ha preso il percorso sul serio.</p>
     <div class="proof-grid">
       <div class="proof-card">
-        <div class="before-after">Prima → Dopo</div>
+        <div class="before-after">Da dipendente a commerciale</div>
         <div class="amount">+2.800€</div>
-        <div class="timeframe">In 5 mesi · da dipendente</div>
-        <p>Da <strong>1.400€/mese come dipendente</strong> a <strong>4.200€/mese</strong> con il Sistema delle 7 Domande. Stessa città, stesso settore. Metodo diverso.</p>
+        <div class="timeframe">Dopo 5 mesi · partito da dipendente</div>
+        <p>Da <strong>1.400€/mese come dipendente</strong> a <strong>4.200€/mese</strong> con il Sistema delle 7 Domande. Non al primo mese: dopo 5 mesi di pratica.</p>
       </div>
       <div class="proof-card">
-        <div class="before-after">Prima trattativa</div>
+        <div class="before-after">La prima trattativa</div>
         <div class="amount">1.200€</div>
-        <div class="timeframe">In una sola chiamata</div>
-        <p>Contratto da 12.000€ alla prima trattativa reale. <strong>Commissione: 1.200€ in 45 minuti</strong> — più di una settimana di lavoro dipendente.</p>
+        <div class="timeframe">Una sola chiamata</div>
+        <p>Contratto da 12.000€ alla prima trattativa reale: <strong>1.200€ di provvigione</strong>, seguendo il metodo domanda per domanda. Senza forzare nessuno.</p>
       </div>
       <div class="proof-card">
-        <div class="before-after">Da zero al top</div>
-        <div class="amount">50k/mese</div>
-        <div class="timeframe">In 9 mesi · da zero</div>
-        <p>9 mesi fa non aveva mai venduto niente. Oggi <strong>50–100k al mese in contratti reali</strong> — non da corsi. Da vendite vere, sul campo.</p>
+        <div class="before-after">Il mio percorso</div>
+        <div class="amount">9 mesi</div>
+        <div class="timeframe">Dai traslochi ai contratti veri</div>
+        <p>9 mesi dopo aver iniziato <strong>chiudevo 50–100k al mese in contratti</strong>. Te lo dico per onestà: è il mio risultato, dopo mesi di pratica ogni giorno. Non è quello che ti succede il mese dopo.</p>
       </div>
     </div>
     <div class="proof-screenshot">
       <img src="img/risultati-bonifici.png" alt="Screenshot di bonifici reali ricevuti da commissioni di vendita" loading="lazy">
     </div>
-    <p class="proof-screenshot-caption">Bonifici reali, in periodi diversi. Non promesse — numeri.</p>
+    <p class="proof-screenshot-caption">Bonifici reali, in periodi diversi. Sono il risultato di mesi di lavoro sul campo — non di una settimana.</p>
     <div class="proof-author-block">
       <p>"Vendo ancora ogni giorno. Non solo formo — vendo. Perché chi non vende più non può insegnarti a farlo."</p>
       <div class="author-name">— Luca Frassine · Sales Coach</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DOPO IL PERCORSO: TI INSERISCO IO ══════════ -->
+<section class="path-section">
+  <div class="fit-inner">
+    <div class="section-label">Come funziona</div>
+    <h2 class="faq-headline">Non ti formo e ti lascio da solo.<br><em>Ti porto io dentro le aziende.</em></h2>
+    <p class="path-sub">Il problema di quasi tutti i corsi è che finiscono con un video e un "in bocca al lupo". Qui no: il percorso finisce quando lavori con un'azienda vera.</p>
+    <div class="path-grid">
+      <div class="path-step">
+        <div class="path-num">01</div>
+        <div class="fit-title">Impari il metodo</div>
+        <p>Il Sistema delle 7 Domande, spiegato in modo semplice. <strong>Poca teoria, tanta pratica</strong>: si studia anche con un lavoro a tempo pieno.</p>
+      </div>
+      <div class="path-step">
+        <div class="path-num">02</div>
+        <div class="fit-title">Ti alleni con me</div>
+        <p>Videochiamate di simulazione <strong>con me, personalmente</strong>: sbagli, ti correggo, ripeti. Finché la trattativa non ti viene naturale.</p>
+      </div>
+      <div class="path-step path-top">
+        <div class="path-num">03</div>
+        <div class="fit-title">Ti inserisco io nelle aziende</div>
+        <p>Le aziende mi chiedono venditori. <strong>Quando sei pronto, ti inserisco io</strong>: nelle aziende con cui lavoro e in quelle del mio marketplace.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1238,8 +1273,8 @@ fbq('track','PageView');
       <h2 class="who-headline">Non un guru. <em>Uno che vende ancora, ogni giorno.</em></h2>
       <p class="who-text">Sales Coach dal 2021. Ha iniziato con i traslochi e la fabbrica, poi ha scoperto la vendita da remoto — e da allora non ha mai smesso di vendere sul campo, ogni giorno, prima ancora che di insegnare. Il Sistema delle 7 Domande nasce dalle sue trattative reali, non da un libro.</p>
       <div class="who-stats">
-        <div class="who-stat"><div class="who-stat-num">300+</div><div class="who-stat-label">Persone formate</div></div>
-        <div class="who-stat"><div class="who-stat-num">3M€+</div><div class="who-stat-label">Generati in vendite</div></div>
+        <div class="who-stat"><div class="who-stat-num">200+</div><div class="who-stat-label">Persone formate</div></div>
+        <div class="who-stat"><div class="who-stat-num">4M€+</div><div class="who-stat-label">Venduti personalmente</div></div>
         <div class="who-stat"><div class="who-stat-num">2021</div><div class="who-stat-label">Sales Coach dal</div></div>
       </div>
     </div>
@@ -1322,7 +1357,7 @@ fbq('track','PageView');
       </div>
     </div>
     <p class="pain-closer">
-      Il problema non è la tua capacità. Il problema è che <strong>nessuno ti ha mai mostrato la via d'uscita concreta</strong> — quella che funziona davvero, senza investimenti iniziali, senza miracoli.
+      Il problema non è la tua capacità. Il problema è che <strong>nessuno ti ha mai mostrato la via d'uscita concreta</strong> — quella che funziona davvero, senza capitale da rischiare, senza miracoli.
     </p>
     <div style="text-align:center; margin-top: 40px;">
       <button class="pain-cta-btn" onclick="scrollToGuide()">Scarica la video-guida gratis →</button>
@@ -1336,7 +1371,7 @@ fbq('track','PageView');
   <div class="beliefs-inner">
     <div class="beliefs-label">Prima di andare avanti</div>
     <h2 class="beliefs-headline">Le 3 cose che ti stanno<br><em>bloccando</em> — e perché sono false</h2>
-    <p class="beliefs-sub">Queste non sono obiezioni. Sono bugie che ti sei raccontato — e che ti costano soldi ogni mese.</p>
+    <p class="beliefs-sub">Queste non sono obiezioni. Sono convinzioni che ti tengono fermo dove sei.</p>
     <div class="beliefs-grid">
       <div class="belief-card">
         <div class="belief-false">❌ &nbsp;"Non sono portato per la vendita"</div>
@@ -1356,8 +1391,36 @@ fbq('track','PageView');
         <div class="belief-false">❌ &nbsp;"Non ho abbastanza tempo"</div>
         <div class="belief-arrow">↓</div>
         <div class="belief-truth">
-          3–4 ore al giorno bastano per iniziare. <strong>I nostri venditori non lavorano più del loro vecchio lavoro</strong> — portano a casa 2–3 volte di più. Il problema non è il tempo. È che stai usando il tempo per la cosa sbagliata.
+          Per imparare bastano 2–3 ore al giorno, anche con un lavoro a tempo pieno. <strong>Manuel, 45 anni, due bambini e un lavoro a turni, ha fatto il percorso in 5 settimane</strong> — senza lasciare il lavoro. Il problema non è il tempo. È che stai usando il tempo per la cosa sbagliata.
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PER CHI È / PER CHI NON È ══════════ -->
+<section class="fit-section">
+  <div class="fit-inner">
+    <div class="section-label">Prima di andare avanti</div>
+    <h2 class="faq-headline">Questo percorso<br><em>non è per tutti</em></h2>
+    <div class="fit-grid">
+      <div class="fit-card fit-si">
+        <div class="fit-title">✅ È per te se…</div>
+        <ul>
+          <li><strong>hai già provato</strong> trading, dropshipping o corsi online e ci hai perso tempo e soldi — e adesso vuoi un mestiere vero, con qualcuno che ti segua</li>
+          <li><strong>hai un lavoro da dipendente</strong> che non ti basta e non ti piace più, e vuoi costruirti un'alternativa senza lasciarlo dall'oggi al domani</li>
+          <li><strong>sei stanco</strong> di turni, ore in piedi o in macchina per una cifra che non cambia niente — e hai deciso che è il momento</li>
+          <li>vuoi <strong>imparare e poi lavorare davvero</strong> con un'azienda, non restare da solo con l'ennesimo corso</li>
+          <li>sai che imparare un mestiere richiede <strong>impegno e un investimento</strong></li>
+        </ul>
+      </div>
+      <div class="fit-card fit-no">
+        <div class="fit-title">❌ Non è per te se…</div>
+        <ul>
+          <li>cerchi soldi facili o veloci</li>
+          <li>vuoi risultati senza studiare e fare pratica</li>
+          <li>adesso non puoi investire niente su di te: guarda la video-guida, è gratis, e torna quando è il momento</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1379,7 +1442,11 @@ fbq('track','PageView');
       </div>
       <div class="faq-item">
         <div class="faq-q">Serve investire dei soldi?</div>
-        <div class="faq-a">Bisogna distinguere due cose. Per fare il Commerciale da Remoto <strong>non serve capitale e non corri rischi economici</strong>: il rischio lo prende l'azienda con cui lavori, tu vieni pagato a commissione su quello che chiudi — è uno dei motivi per cui regge meglio di alternative come trading o dropshipping. Se poi deciderai di approfondire il percorso con me, quello è un investimento vero — ma se ne parla dopo, non ora. La video-guida serve solo a farti capire se questa professione fa per te.</div>
+        <div class="faq-a">Bisogna distinguere due cose. Per fare il Commerciale da Remoto <strong>non serve capitale e non corri rischi economici</strong>: il rischio lo prende l'azienda con cui lavori, tu vieni pagato a commissione su quello che chiudi — è uno dei motivi per cui regge meglio di alternative come trading o dropshipping. Il percorso per imparare il mestiere con me, invece, <strong>è un investimento serio, rateizzabile</strong> — non un corso da pochi euro o un metodo lampo, perché ti seguo io personalmente finché non sai farlo. Te lo dico subito perché preferisco parlare con chi sa già che c'è un investimento da fare.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">E dopo il percorso, come trovo le aziende con cui lavorare?</div>
+        <div class="faq-a">Non ti lascio da solo a cercarle. <strong>Finito il percorso, ti inserisco io nelle aziende</strong>: quelle che mi chiedono venditori e quelle del mio marketplace. Non ti do solo una formazione e una lista di contatti: ti porto dentro io. Nella video-guida ti spiego come funziona.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Cos'è esattamente il Commerciale da Remoto?</div>
@@ -1398,7 +1465,7 @@ fbq('track','PageView');
   <div class="final-eyebrow">La biforcazione</div>
   <h2>Questa è la scelta:<br><em>continui esattamente come adesso</em> — o scopri cosa cambia.</h2>
   <p class="final-body">
-    Tra 6 mesi sarai da qualche parte. La domanda è dove. Se non cambia niente di strutturale, la risposta la conosci già. <strong>La video-guida non ti costa niente. L'alternativa, sì.</strong>
+    Tra 6 mesi sarai da qualche parte. Se non cambia niente, sai già dove. <strong>La video-guida è il primo passo per capire se questa professione fa per te</strong> — e se non fa per te, l'avrai capito in pochi minuti.
   </p>
   <div class="guarantee-block">
     <div class="guarantee-icon">🛡</div>
@@ -1415,9 +1482,38 @@ fbq('track','PageView');
 <section class="ps-section">
   <div class="ps-inner">
     <p><strong>P.S.</strong> — Se stai ancora leggendo senza aver scaricato la video-guida, lasciami dirti una cosa sola. Quella rabbia che senti — quella che ti tiene sveglio — è esattamente dove ero io quella notte, nel buio, con la fabbrica in testa. La video-guida non risolve niente da sola. Ma ti spiega esattamente come funziona questa professione e cosa puoi costruirci. È il primo passo. Quello che ho fatto anch'io.</p>
-    <p><strong>P.P.S.</strong> — Dopo la video-guida potrai anche prenotare una chiamata gratuita con Luca per parlare della tua situazione specifica. Luca la gestisce personalmente, quindi i posti ogni settimana sono limitati. <em>Scarica la guida adesso — non rimandare a domani.</em></p>
+    <p><strong>P.P.S.</strong> — Dopo la video-guida puoi prenotare una chiamata con me per parlare della tua situazione. <strong>La faccio io personalmente, con chi ha guardato il video e ha deciso di fare sul serio.</strong> Per questo i posti ogni settimana sono pochi.</p>
   </div>
 </section>
+
+<!-- ══════════ MODULO IN FINESTRA (opt-in a due passi) ══════════ -->
+<div class="optin-modal" id="optin-modal" aria-hidden="true" onclick="if(event.target===this)chiudiModulo()">
+  <div class="optin-box" role="dialog" aria-modal="true" aria-labelledby="optin-titolo">
+    <button type="button" class="optin-chiudi" onclick="chiudiModulo()" aria-label="Chiudi">×</button>
+    <div class="guide-eyebrow">Video-guida gratuita</div>
+    <h2 class="optin-titolo" id="optin-titolo">Dove ti mando<br><em>la video-guida?</em></h2>
+    <form onsubmit="submitLeadForm(event)" novalidate id="guida">
+      <div class="form-group">
+        <label class="form-label" for="lead-name">Nome e cognome *</label>
+        <input class="form-input" type="text" id="lead-name" placeholder="Mario Rossi" required autocomplete="name">
+        <div class="form-errore" id="lead-name-errore" role="alert"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="lead-email">Email *</label>
+        <input class="form-input" type="email" id="lead-email" placeholder="mario@email.it" required autocomplete="email">
+        <div class="form-errore" id="lead-email-errore" role="alert"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="lead-phone">Telefono *</label>
+        <input class="form-input" type="tel" id="lead-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
+        <div class="form-errore" id="lead-phone-errore" role="alert"></div>
+      </div>
+      <button type="submit" class="guide-submit-btn" id="lead-submit-btn">Scarica la video-guida gratis →</button>
+      <p class="form-immediate">✅ Accesso immediato — appena invii il form vedi subito la video-guida.</p>
+      <p class="form-privacy">Nessuno spam. I tuoi dati sono al sicuro e vengono usati solo per inviarti la guida e ricontattarti.</p>
+    </form>
+  </div>
+</div>
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
@@ -1441,14 +1537,24 @@ fbq('track','PageView');
 </footer>
 
 <script>
-function scrollToGuide() {
-  document.getElementById('guida').scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Opt-in a due passi: ogni pulsante apre il modulo in una finestra sopra la pagina.
+function apriModulo() {
+  var m = document.getElementById('optin-modal');
+  m.classList.add('aperto'); m.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() { document.getElementById('lead-name').focus(); }, 50);
 }
+function chiudiModulo() {
+  var m = document.getElementById('optin-modal');
+  m.classList.remove('aperto'); m.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+function scrollToGuide() { apriModulo(); }
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') chiudiModulo(); });
 
 document.querySelector('.navbar-cta').addEventListener('click', function(e) {
   e.preventDefault();
-  var target = document.getElementById('guida');
-  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  apriModulo();
 });
 
 // Da dove arriva la persona (inserzione e UTM): salvato al primo arrivo, così resta anche se cambia pagina.

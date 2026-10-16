@@ -165,6 +165,7 @@ fbq('track','PageView');
 </head>
 <body>
 
+
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar">
   <div class="navbar-logo">LUCA <span>FRASSINE</span></div>
@@ -174,71 +175,17 @@ fbq('track','PageView');
 <section class="confirm-section">
   <div class="confirm-badge">✅</div>
   <div class="confirm-eyebrow">Registrazione completata</div>
-  <h1 class="confirm-headline">Fatto.<br><em>Ora aspettati due cose.</em></h1>
+  <h1 class="confirm-headline">Fatto.<br><em>La video-guida è qui sotto.</em></h1>
   <p class="confirm-body">
-    <strong>La tua video-guida è qui sotto</strong> — guardala adesso: ti spiega cos'è questa professione, quanto puoi guadagnare e come funziona davvero.<br><br>
-    <strong>Controlla anche la mail</strong> — ti abbiamo mandato il link, così la ritrovi quando vuoi.
+    Prima, <strong>5 domande veloci</strong> (meno di un minuto): così, se vuoi parlarne con me, arrivo alla chiamata già preparato sulla tua situazione. <strong>Il video lo trovi subito dopo</strong> — e ti arriva anche per mail.
   </p>
-  <div class="confirm-ctas">
-    <a class="btn-outline" href="#video">Guarda il video ↓</a>
-    <a class="btn-primary" href="#candidatura">Candidati subito →</a>
-  </div>
-</section>
-
-<!-- ══════════ 3 STEP ══════════ -->
-<section class="steps-section">
-  <div class="steps-inner">
-    <div class="section-label">Cosa succede adesso</div>
-    <h2 class="section-headline">I tuoi prossimi<br><em>3 passi</em></h2>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <div class="step-title">Guarda la video-guida</div>
-        <p class="step-text">Luca ti spiega <strong>cos'è questa professione</strong>, quanto puoi guadagnare e perché conviene impararla — anche partendo da zero.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <div class="step-title">Candidati</div>
-        <p class="step-text">5 domande veloci che permettono a Luca di <strong>capire la tua situazione</strong> — così sa esattamente dove indirizzarti.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <div class="step-title">Prenota la chiamata</div>
-        <p class="step-text">Scegli il giorno e l'orario che preferisci. <strong>Luca ti chiama su Google Meet</strong> — ricevi l'invito sul calendario, nessuna email automatica.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ VIDEO VSL ══════════ -->
-<section class="video-section" id="video">
-  <div class="video-inner">
-    <div class="video-label">La tua video-guida</div>
-    <h2 class="video-headline">La professione che le aziende<br>italiane pagano <em>3.000–8.000€/mese</em></h2>
-    <p class="video-sub">
-      Non è un corso. Non è dropshipping. Non è affiliate marketing.<br>
-      È una competenza che si impara — <strong>anche partendo da zero</strong>. In questi minuti ti spiego cos'è, come funziona e cosa puoi costruirci.
-    </p>
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/vctzxWtogwM?rel=0&modestbranding=1"
-        title="Luca Frassine — Video-guida"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="video-cta">
-      <a class="btn-primary" href="#candidatura">Candidati subito →</a>
-      <p class="video-cta-note">Dopo aver visto il video · Solo se sei serio</p>
-    </div>
-  </div>
 </section>
 
 <!-- ══════════ SONDAGGIO + CALENDARIO ══════════ -->
 <section class="survey-section" id="candidatura">
   <div class="survey-eyebrow">Candidatura</div>
   <h2 class="survey-section-headline">Aiutami a prepararmi<br><em>per la tua chiamata</em></h2>
-  <p class="survey-intro"><strong>5 domande veloci</strong> che permettono a Luca di analizzare la tua situazione prima di vedervi — così il vostro appuntamento su Google Meet va dritto al punto, senza perdere tempo.</p>
+  <p class="survey-intro"><strong>5 domande veloci</strong> che permettono a Luca di analizzare la tua situazione prima di vedervi. La chiamata non è una vendita a sorpresa: se il percorso fa per te, ti parlerà anche dell'investimento. <strong>Rispondi con sincerità</strong>, così ti indirizza nel modo giusto — anche se oggi il budget è basso.</p>
 
   <p class="survey-skip" id="salta-questionario">Hai poco tempo? <a href="#booking-section" onclick="event.preventDefault(); mostraCalendario(false);">Prenota direttamente la chiamata →</a></p>
 
@@ -274,12 +221,12 @@ fbq('track','PageView');
     <!-- D3 -->
     <div class="survey-step" id="ss-3">
       <button class="survey-back-btn" onclick="surveyGoTo(2,2)">← Domanda precedente</button>
-      <div class="survey-question">Se i numeri hanno senso, sei pronto a partire?</div>
+      <div class="survey-question">Se il percorso fa per te, quando vorresti iniziare?</div>
       <div class="survey-options">
-        <button class="survey-option" onclick="surveySelect(3,'pronto',this)"><div class="survey-dot"></div>Sì, sono pronto — aspetto solo di capire come funziona</button>
-        <button class="survey-option" onclick="surveySelect(3,'info',this)"><div class="survey-dot"></div>Ho bisogno di qualche informazione in più prima di decidere</button>
-        <button class="survey-option" onclick="surveySelect(3,'dipende',this)"><div class="survey-dot"></div>Dipende dall'investimento richiesto</button>
-        <button class="survey-option" onclick="surveySelect(3,'valutando',this)"><div class="survey-dot"></div>Non so ancora, sto valutando</button>
+        <button class="survey-option" onclick="surveySelect(3,'subito',this)"><div class="survey-dot"></div>Subito</button>
+        <button class="survey-option" onclick="surveySelect(3,'entro-1-mese',this)"><div class="survey-dot"></div>Entro un mese</button>
+        <button class="survey-option" onclick="surveySelect(3,'entro-3-mesi',this)"><div class="survey-dot"></div>Entro 3 mesi</button>
+        <button class="survey-option" onclick="surveySelect(3,'guardando',this)"><div class="survey-dot"></div>Per ora sto solo guardando</button>
       </div>
     </div>
 
@@ -298,12 +245,12 @@ fbq('track','PageView');
     <!-- D5 -->
     <div class="survey-step" id="ss-5">
       <button class="survey-back-btn" onclick="surveyGoTo(4,4)">← Domanda precedente</button>
-      <div class="survey-question">Quanto saresti disposto a investire per arrivare a 3.000–5.000€ al mese?</div>
+      <div class="survey-question">Se il percorso fa per te, quanto potresti investire per imparare questa professione?</div>
       <div class="survey-options">
-        <button class="survey-option" onclick="surveySelect(5,'meno-500',this)"><div class="survey-dot"></div>Meno di 500€</button>
-        <button class="survey-option" onclick="surveySelect(5,'500-1500',this)"><div class="survey-dot"></div>500€ – 1.500€</button>
-        <button class="survey-option" onclick="surveySelect(5,'1500-3000',this)"><div class="survey-dot"></div>1.500€ – 3.000€</button>
-        <button class="survey-option" onclick="surveySelect(5,'no-limite',this)"><div class="survey-dot"></div>Non ho un limite se il percorso è serio e i numeri tornano</button>
+        <button class="survey-option" onclick="surveySelect(5,'meno-500',this)"><div class="survey-dot"></div>Meno di 500 € — preferisco iniziare da solo, con un corso</button>
+        <button class="survey-option" onclick="surveySelect(5,'500-1500',this)"><div class="survey-dot"></div>500 – 1.500 €</button>
+        <button class="survey-option" onclick="surveySelect(5,'1500-2500',this)"><div class="survey-dot"></div>1.500 – 2.500 €, anche a rate</button>
+        <button class="survey-option" onclick="surveySelect(5,'oltre-2500',this)"><div class="survey-dot"></div>Oltre 2.500 €, se il percorso è serio</button>
       </div>
     </div>
 
@@ -338,6 +285,30 @@ fbq('track','PageView');
       document.getElementById('booking-iframe').src = src;
     })();
     </script>
+  </div>
+</section>
+
+<!-- ══════════ VIDEO VSL ══════════ -->
+<section class="video-section" id="video">
+  <div class="video-inner">
+    <div class="video-label">La tua video-guida · guardala prima della chiamata</div>
+    <h2 class="video-headline">Come funziona davvero la professione<br>del <em>Commerciale da Remoto</em></h2>
+    <p class="video-sub">
+      Non è un corso. Non è dropshipping. Non è affiliate marketing.<br>
+      È una competenza che si impara — <strong>anche partendo da zero</strong>. In questi minuti ti spiego cos'è, come funziona e per chi non è.
+    </p>
+    <div class="video-wrapper">
+      <iframe loading="lazy"
+        src="https://www.youtube.com/embed/vctzxWtogwM?rel=0&modestbranding=1"
+        title="Luca Frassine — Video-guida"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-cta">
+      <a class="btn-primary" href="#candidatura">Non hai ancora prenotato? Candidati ↑</a>
+      <p class="video-cta-note">5 domande veloci · poi scegli giorno e ora</p>
+    </div>
   </div>
 </section>
 
