@@ -148,6 +148,7 @@ footer a:hover { color: var(--red); }
 @media (max-width: 360px) {
   .btn-primary, .btn-outline { font-size: 14px; padding: 15px 20px; }
 }
+.calendario-in-preparazione { display: block !important; position: fixed; left: 0; top: 0; width: 100%; opacity: 0; pointer-events: none; z-index: -1; }
 </style>
 
 <!-- Meta Pixel -->
@@ -283,6 +284,11 @@ fbq('track','PageView');
         src += '?' + q.toString();
       }
       document.getElementById('booking-iframe').src = src;
+      // Il calendario di GoHighLevel si disegna solo quando è sullo schermo: nascosto restava vuoto per 10–20 secondi
+      // dopo il sondaggio. Lo prepariamo subito, invisibile e non cliccabile, così quando serve è già pronto.
+      var sezione = document.getElementById('booking-section');
+      sezione.classList.add('calendario-in-preparazione');
+      sezione.setAttribute('aria-hidden', 'true');
     })();
     </script>
   </div>
@@ -342,6 +348,8 @@ var leadPhone = '';
 // Mostra il calendario: dopo il questionario oppure subito, per chi preferisce prenotare senza rispondere.
 function mostraCalendario(dalQuestionario) {
   var bookingSection = document.getElementById('booking-section');
+  bookingSection.classList.remove('calendario-in-preparazione');
+  bookingSection.removeAttribute('aria-hidden');
   bookingSection.style.display = 'block';
   var salta = document.getElementById('salta-questionario');
   if (salta) salta.style.display = 'none';
