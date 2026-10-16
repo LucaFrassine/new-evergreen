@@ -1021,6 +1021,7 @@ footer a:hover { color: var(--red); }
 .form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray); background: var(--white); font-family: var(--font-body); font-size: 16px; color: var(--black); outline: none; transition: border-color .2s; -webkit-appearance: none; border-radius: 0; }
 .form-input:focus { border-color: var(--red); }
 .form-input::placeholder { color: #ccc; }
+.form-nota-tel { font-family: var(--font-body); font-size: 12px; font-weight: 700; color: var(--black); margin-top: 6px; line-height: 1.45; }
 .form-errore { display: none; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--red); margin-top: 6px; line-height: 1.4; }
 .guide-submit-btn { width: 100%; padding: 20px; background: var(--red); color: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border: none; cursor: pointer; transition: background .2s; margin-top: 8px; touch-action: manipulation; -webkit-appearance: none; }
 .guide-submit-btn:hover { background: var(--red-dark); }
@@ -1519,9 +1520,10 @@ fbq('track','PageView');
         <div class="form-errore" id="lead-email-errore" role="alert"></div>
       </div>
       <div class="form-group">
-        <label class="form-label" for="lead-phone">Telefono *</label>
+        <label class="form-label" for="lead-phone">Numero WhatsApp *</label>
         <input class="form-input" type="tel" id="lead-phone" placeholder="+39 333 123 4567" required autocomplete="tel">
         <div class="form-errore" id="lead-phone-errore" role="alert"></div>
+        <p class="form-nota-tel">Usa il numero che usi davvero: ti scrivo io, personalmente, su WhatsApp. Niente call center, niente pubblicità.</p>
       </div>
       <button type="submit" class="guide-submit-btn" id="lead-submit-btn">Scarica la video-guida gratis →</button>
       <p class="form-immediate">✅ Accesso immediato — appena invii il form vedi subito la video-guida.</p>
