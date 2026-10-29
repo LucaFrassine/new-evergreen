@@ -421,7 +421,7 @@ function surveyComplete() {
   document.querySelectorAll('.survey-step').forEach(function(s) { s.classList.remove('active'); });
 
   // "Schedule" parte solo a prenotazione confermata (pagina prenotato.html): qui segniamo solo il questionario.
-  if (typeof fbq !== 'undefined') fbq('trackCustom', 'QuestionarioCompletato');
+  if (typeof fbq !== 'undefined') fbq('track', 'SubmitApplication'); // evento standard: il nome personalizzato "QuestionarioCompletato" veniva bloccato da Meta
   mostraCalendario(true);
 }
 </script>
