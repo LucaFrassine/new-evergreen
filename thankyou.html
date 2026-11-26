@@ -378,7 +378,8 @@ function surveySelect(step, value, el) {
     o.classList.remove('selected');
   });
   el.classList.add('selected');
-  surveyAnswers['s' + step] = value;
+  // In GHL i campi sono a scelta singola: va mandato il testo esatto dell'opzione, non il codice
+  surveyAnswers['s' + step] = el.textContent.trim();
   setTimeout(function() {
     if (step < 5) {
       surveyGoTo(step + 1, step + 1);
